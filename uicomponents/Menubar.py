@@ -1,6 +1,6 @@
 import tkinter as tk
 from PIL import Image, ImageTk
-
+from uicomponents.DrawingCanvas import DrawingCanvas
 from uicomponents.ToolTip import Tooltip
 from window.ConfigWindow import ConfigWindow
 
@@ -77,6 +77,7 @@ class MenuBar(tk.Frame):
                 self.play_pause_button_tooltip.update_tooltip_text(text="Stop")
                 # Add your logic for play button clicked
                 print("Play button clicked")
+                DrawingCanvas.bubble_sort()
             else:
                 self.play_pause_button.config(image=photo_image_play_unpressed)
                 self.play_pause_button_tooltip.update_tooltip_text(text="Sort")

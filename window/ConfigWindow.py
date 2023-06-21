@@ -1,8 +1,11 @@
 import tkinter as tk
 from tkinter import ttk
+from uicomponents.DrawingCanvas import DrawingCanvas
 
 
 class ConfigWindow(tk.Toplevel):
+    num_blocks = 0  # Class variable to store the number of blocks
+
     def __init__(self, master):
         super().__init__(master)
         self.title("Configuration")
@@ -65,8 +68,11 @@ class ConfigWindow(tk.Toplevel):
     def update_blocks_label(self, event=None):
         num_blocks = self.blocks_scale.get()
         self.blocks_selected_label.config(text=num_blocks)
+        ConfigWindow.num_blocks = num_blocks  # Update the class variable
 
     def apply_configuration(self):
+        DrawingCanvas.delete_blocks()
+        DrawingCanvas.create_blocks(DrawingCanvas.get_canvas(), ConfigWindow.num_blocks)
         self.destroy()
 
 
