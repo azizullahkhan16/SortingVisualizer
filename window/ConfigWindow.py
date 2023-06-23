@@ -4,7 +4,7 @@ from uicomponents.DrawingCanvas import DrawingCanvas
 
 
 class ConfigWindow(tk.Toplevel):
-    num_blocks = 0  # Class variable to store the number of blocks
+    num_blocks = 10  # Class variable to store the number of blocks
 
     def __init__(self, master):
         super().__init__(master)

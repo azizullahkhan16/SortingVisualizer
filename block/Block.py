@@ -39,7 +39,7 @@ class Block:
         return self._random_number
 
     # draws block on the window
-    def draw_square(self, canvas):
+    def paint(self, canvas):
         # Draw the square
         canvas.create_rectangle(self._x, self._y, self._x + self._length, self._y + self._length, fill="white")
 
@@ -49,6 +49,8 @@ class Block:
         font_size = self.calculate_font_size()
         canvas.create_text(text_x, text_y, text=str(self._random_number), font=('Arial', font_size, 'bold'),
                            fill="black")
+
+
 
     def calculate_font_size(self):
         base_font_size = 12  # Base font size for reference

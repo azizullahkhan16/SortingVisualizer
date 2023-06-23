@@ -5,6 +5,8 @@ from datastructure.ArrayBlock import ArrayBlock
 class DrawingCanvas(tk.Canvas):
     blocks = None
     canvas = None
+    animation_paused = False
+    is_sorted = False
 
     def __init__(self, master, **kwargs):
         super().__init__(master, **kwargs)
@@ -16,13 +18,15 @@ class DrawingCanvas(tk.Canvas):
     def create_blocks(cls, canvas, num_blocks):
         cls.canvas = canvas
         cls.blocks = ArrayBlock(num_blocks)
-        cls.paint(cls.canvas)
+        cls.paint(canvas)
 
     # This functions deletes all the blocks and cleans the canvas
     @classmethod
     def delete_blocks(cls):
         cls.blocks.delete_blocks()
         cls.canvas.delete(tk.ALL)
+        cls.is_sorted = False
+        cls.animation_paused = False
 
     # This function cleans everything on the canvas and draws everything again
     @classmethod
@@ -44,3 +48,38 @@ class DrawingCanvas(tk.Canvas):
     @classmethod
     def paint(cls, canvas):
         cls.blocks.paint(canvas)
+
+        # Display current pass text in the top right corner
+        current_pass_text = "Current Pass: " + str(cls.blocks.current_pass)
+        if cls.is_sorted:
+            color = "#00bf63"
+        else:
+            color = "white"
+        DrawingCanvas.get_canvas().create_text(canvas.winfo_width() - 10, 10, anchor="ne", text=current_pass_text,
+                                               fill=color, font=('Arial', 12, 'bold'))
+
+    @classmethod
+    def get_animation_paused(cls):
+        return cls.animation_paused
+
+    @classmethod
+    def set_animation_paused(cls, animation_paused):
+        cls.animation_paused = animation_paused
+
+    @classmethod
+    def get_is_sorted(cls):
+        return cls.is_sorted
+
+    @classmethod
+    def set_is_sorted(cls, is_sorted):
+        cls.is_sorted = is_sorted
+
+    @classmethod
+    def get_current_pass(cls):
+        return cls.blocks.current_pass
+
+    @classmethod
+    def set_current_pass(cls, current_pass):
+        cls.blocks.current_pass = current_pass
+
+

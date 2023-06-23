@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f2f7e18-7c1a-4f4d-b986-686ab934ff54" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SortingVisualizer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SortingVisualizer.iml" afterDir="false" />
+    <list default="true" id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/animation/Animation.py" beforeDir="false" afterPath="$PROJECT_DIR$/animation/Animation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/block/Block.py" beforeDir="false" afterPath="$PROJECT_DIR$/block/Block.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/block/Position.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/Board.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datastructure/ArrayBlock.py" beforeDir="false" afterPath="$PROJECT_DIR$/datastructure/ArrayBlock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pauseUnpressed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/playPressed.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/uicomponents/DrawingCanvas.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/DrawingCanvas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uicomponents/Menubar.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/Menubar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/window/ConfigWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/window/ConfigWindow.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,16 +23,16 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="2RT7ZEzM3AmricDD3yxL6plg6oK" />
+  <component name="ProjectId" id="2Rb3P6fOk6UH0DZZ1X8VqXeLECR" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/user/Downloads/SortingVisualizer"
+    "git-widget-placeholder": "master"
   }
 }]]></component>
   <component name="RunManager">
@@ -67,12 +66,23 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="9f2f7e18-7c1a-4f4d-b986-686ab934ff54" name="Changes" comment="" />
-      <created>1687262272644</created>
+      <changelist id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="" />
+      <created>1687504928756</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1687262272644</updated>
+      <updated>1687504928756</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/animation/Animation.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
