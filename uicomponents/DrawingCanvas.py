@@ -39,6 +39,21 @@ class DrawingCanvas(tk.Canvas):
     def bubble_sort(cls):
         cls.blocks.bubble_sort(cls.canvas)
 
+    # This function calls the block's insertion sort
+    @classmethod
+    def insertion_sort(cls):
+        cls.blocks.insertion_sort(cls.canvas)
+
+    # This function calls the block's selection sort
+    @classmethod
+    def selection_sort(cls):
+        cls.blocks.selection_sort(cls.canvas)
+
+    # This function calls the block's quick sort
+    @classmethod
+    def quick_sort(cls):
+        cls.blocks.quick_sort(cls.canvas)
+
     # This function returns the canvas on which we are drawing
     @classmethod
     def get_canvas(cls):
@@ -54,7 +69,7 @@ class DrawingCanvas(tk.Canvas):
         if cls.is_sorted:
             color = "#00bf63"
         else:
-            color = "white"
+            color = "#E44444"
         DrawingCanvas.get_canvas().create_text(canvas.winfo_width() - 10, 10, anchor="ne", text=current_pass_text,
                                                fill=color, font=('Arial', 12, 'bold'))
 

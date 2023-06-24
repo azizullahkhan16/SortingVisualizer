@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from tkinter import ttk
 from uicomponents.DrawingCanvas import DrawingCanvas
@@ -15,8 +16,10 @@ class ConfigWindow(tk.Toplevel):
         self.transient(master)  # Set as transient window to disable main window interaction
         self.grab_set()  # Grab focus to this window
 
-        # Set window icon
-        icon_image = tk.PhotoImage(file="C:/Users/user/PycharmProjects/SortingVisualizer/list.png")
+        # Get the absolute path of the script file
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
+        icon_image = tk.PhotoImage(file=os.path.join(script_dir, "res/list.png"))
         self.iconphoto(False, icon_image)
 
         # Center the window on the screen

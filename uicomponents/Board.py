@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from uicomponents.DrawingCanvas import DrawingCanvas
 from uicomponents.Menubar import MenuBar
@@ -11,7 +12,10 @@ class Board:
         window.configure(bg="#373737")
         window.resizable(False, False)  # Disable window resizing
 
-        icon_image = tk.PhotoImage(file="C:/Users/user/PycharmProjects/SortingVisualizer/list.png")
+        # Get the absolute path of the script file
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
+        icon_image = tk.PhotoImage(file=os.path.join(script_dir, "res/list.png"))
         window.iconphoto(False, icon_image)
 
         # Define the dimensions of the window
@@ -34,5 +38,3 @@ class Board:
 
         # Start the main event loop
         window.mainloop()
-
-

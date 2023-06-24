@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from PIL import Image, ImageTk
 
@@ -55,20 +56,23 @@ class MenuBar(tk.Frame):
         self.shuffle_button.config(command=self.on_shuffle_button_click)
         Tooltip(self.shuffle_button, "Shuffle")
 
+        # Get the absolute path of the script file
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
         # Set custom icons for the buttons
         self.set_icon(
             self.config_button,
-            "C:/Users/user/PycharmProjects/SortingVisualizer/configUnpressed.png",
-            "C:/Users/user/PycharmProjects/SortingVisualizer/configPressed.png"
+            os.path.join(script_dir, "res/configUnpressed.png"),
+            os.path.join(script_dir, "res/configPressed.png")
         )
         self.set_play_pause_icons(
-            "C:/Users/user/PycharmProjects/SortingVisualizer/playUnpressed.png",
-            "C:/Users/user/PycharmProjects/SortingVisualizer/pausePressed.png"
+            os.path.join(script_dir, "res/playUnpressed.png"),
+            os.path.join(script_dir, "res/pausePressed.png")
         )
         self.set_icon(
             self.shuffle_button,
-            "C:/Users/user/PycharmProjects/SortingVisualizer/shuffleUnpressed.png",
-            "C:/Users/user/PycharmProjects/SortingVisualizer/shufflePressed.png"
+            os.path.join(script_dir, "res/shuffleUnpressed.png"),
+            os.path.join(script_dir, "res/shufflePressed.png")
         )
 
     def on_config_button_click(self):
@@ -110,6 +114,7 @@ class MenuBar(tk.Frame):
             if DrawingCanvas.get_is_sorted():
                 self.is_playing = not self.is_playing
                 self.config_button.config(state=tk.NORMAL)  # Enable the config button
+                self.shuffle_button.config(state=tk.NORMAL)  # Enable the shuffle button
                 self.play_pause_button.config(image=photo_image_play_unpressed)
                 self.play_pause_button_tooltip.update_tooltip_text(text="Sort")
 
@@ -128,8 +133,8 @@ class MenuBar(tk.Frame):
                     DrawingCanvas.set_animation_paused(False)
                 else:
                     if not DrawingCanvas.get_is_sorted():
-                        DrawingCanvas.bubble_sort()
-                        update_play_pause_button()
+                        DrawingCanvas.quick_sort()
+                    update_play_pause_button()
 
             else:
                 self.play_pause_button.config(image=photo_image_play_unpressed)
