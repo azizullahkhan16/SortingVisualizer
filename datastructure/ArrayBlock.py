@@ -137,7 +137,7 @@ class ArrayBlock:
                 else:
                     # Move the elements to their correct positions
                     for i in range(right_index, left_index, -1):
-                        ArrayBlock.swap(self._blocks[i], self._blocks[i-1], canvas)
+                        ArrayBlock.swap(self._blocks[i], self._blocks[i - 1], canvas)
                         self._blocks[i], self._blocks[i - 1] = self._blocks[i - 1], self._blocks[i]
                     left_index += 1
                     middle += 1
@@ -146,6 +146,7 @@ class ArrayBlock:
         def merge_sort_recursive(start, end):
             if start < end:
                 middle = (start + end) // 2
+                self.current_pass += 1
                 merge_sort_recursive(start, middle)
                 merge_sort_recursive(middle + 1, end)
                 merge(start, middle, end)
@@ -153,3 +154,65 @@ class ArrayBlock:
         merge_sort_recursive(0, len(self._blocks) - 1)
         DrawingCanvas.set_is_sorted(True)
         DrawingCanvas.update_blocks()
+
+    def tim_sort(self, canvas):
+        from uicomponents.DrawingCanvas import DrawingCanvas
+
+        MIN_MERGE = 3  # Minimum size of a subarray for merge sort
+        n = len(self._blocks)
+
+        # Insertion sort implementation
+        def insertion_sort(lo, hi):
+            for k in range(lo + 1, hi + 1):
+                current = self._blocks[k]
+                j = k - 1
+                while j >= lo and current.random_number < self._blocks[j].random_number:
+                    ArrayBlock.swap(self._blocks[j+1], self._blocks[j], canvas)
+                    self._blocks[j + 1] = self._blocks[j]
+                    self._blocks[j] = current
+                    j -= 1
+
+        # Merge sort implementation
+        def merge_sort(lo, hi):
+            if hi - lo < MIN_MERGE:
+                insertion_sort(lo, hi)
+            else:
+                mid = (lo + hi) // 2
+                merge_sort(lo, mid)
+                merge_sort(mid + 1, hi)
+                merge(lo, mid, hi)
+
+        # Merge function to combine two sorted halves
+        def merge(lo, mid, hi):
+            left_index = lo
+            right_index = mid + 1
+
+            # Iterate until one of the halves is exhausted
+            while left_index <= mid and right_index <= hi:
+                if self._blocks[left_index].random_number <= self._blocks[right_index].random_number:
+                    left_index += 1
+                else:
+                    # Move the elements to their correct positions
+                    for x in range(right_index, left_index, -1):
+                        ArrayBlock.swap(self._blocks[x], self._blocks[x - 1], canvas)
+                        self._blocks[x], self._blocks[x - 1] = self._blocks[x - 1], self._blocks[x]
+                    left_index += 1
+                    mid += 1
+                    right_index += 1
+
+        # Perform Tim Sort
+        for i in range(0, n, MIN_MERGE):
+            insertion_sort(i, min((i + MIN_MERGE - 1), (n - 1)))
+
+        size = MIN_MERGE
+        while size < n:
+            for start in range(0, n, size * 2):
+                middle = start + size - 1
+                end = min((start + size * 2 - 1), (n - 1))
+                merge(start, middle, end)
+            size *= 2
+
+        # Update canvas and set is_sorted flag
+        DrawingCanvas.set_is_sorted(True)
+        DrawingCanvas.update_blocks()
+
