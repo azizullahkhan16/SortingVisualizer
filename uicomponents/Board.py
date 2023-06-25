@@ -1,5 +1,7 @@
 import os
 import tkinter as tk
+
+from uicomponents.AnalysisSpace import AnalysisSpace
 from uicomponents.DrawingCanvas import DrawingCanvas
 from uicomponents.Menubar import MenuBar
 
@@ -23,13 +25,17 @@ class Board:
         window_height = 700
 
         # Create the menu bar
-        menu_bar = MenuBar(window, width=100, height=500)
+        menu_bar = MenuBar(window, width=100, height=200)
         menu_bar.pack(side=tk.LEFT, fill=tk.Y)
 
         # Create the drawing canvas
-        canvas = DrawingCanvas(window, bg="#373737")
+        canvas = DrawingCanvas(window, bg="#373737", width=window_width - 100, height=200)
         canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         DrawingCanvas.create_blocks(canvas, 10)
+
+        # Create the analysis space
+        analysis_space = AnalysisSpace(window, width=window_width, height=window_height - 200)
+        analysis_space.place(x=0, y=200)
 
         # Position the window in the top-left corner
         screen_width = window.winfo_screenwidth()
@@ -38,3 +44,4 @@ class Board:
 
         # Start the main event loop
         window.mainloop()
+

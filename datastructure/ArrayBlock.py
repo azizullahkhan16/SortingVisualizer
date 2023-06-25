@@ -1,5 +1,4 @@
 import random
-
 from animation import Animation
 from block.Block import Block
 
@@ -7,18 +6,27 @@ from block.Block import Block
 class ArrayBlock:
 
     def __init__(self, num_blocks):
+        from uicomponents.DrawingCanvas import DrawingCanvas
         self.canvas_width = 1240
-        self.canvas_height = 700
+        self.canvas_height = 200
         self.current_pass = 0
-        self.x = 55
         self._length = num_blocks
         self._blocks = []
 
-        block_length = int(self.canvas_width * (13 / 17) / num_blocks)
-        padX = block_length / 10
+        # Calculate the total width occupied by the blocks (excluding padding)
+        block_length = int(self.canvas_width * (13 / 17) / 25)
+        total_width = self._length * block_length
+
+        # Calculate the total width occupied by the blocks (including padding)
+        total_width_with_padding = total_width + (self._length - 1) * block_length / 10
+
+        # Calculate the initial x-coordinate for centering the blocks
+        initial_x = (self.canvas_width - total_width_with_padding) / 2
 
         for i in range(self._length):
-            b = Block(self.x + (i * block_length) + (i * padX), self.canvas_height / 2.5, block_length, self)
+            x = initial_x + (i * block_length) + (i * block_length / 10)
+            y = self.canvas_height / 2.5
+            b = Block(x, y, block_length, self)
             self._blocks.append(b)
 
     def paint(self, canvas):
@@ -171,6 +179,7 @@ class ArrayBlock:
                     self._blocks[j + 1] = self._blocks[j]
                     self._blocks[j] = current
                     j -= 1
+                self.current_pass += 1
 
         # Merge sort implementation
         def merge_sort(lo, hi):
@@ -207,6 +216,7 @@ class ArrayBlock:
         size = MIN_MERGE
         while size < n:
             for start in range(0, n, size * 2):
+                self.current_pass += 1
                 middle = start + size - 1
                 end = min((start + size * 2 - 1), (n - 1))
                 merge(start, middle, end)

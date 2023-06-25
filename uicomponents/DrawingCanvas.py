@@ -10,7 +10,7 @@ class DrawingCanvas(tk.Canvas):
 
     def __init__(self, master, **kwargs):
         super().__init__(master, **kwargs)
-        self.configure(highlightthickness=0)  # Remove the default border
+        self.configure(highlightthickness=0, height=200)  # Remove the default border
         self.bind("<B1-Motion>", self.paint)
 
     # This function creates blocks on the canvas
