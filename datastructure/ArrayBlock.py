@@ -118,6 +118,38 @@ class ArrayBlock:
                 quick_sort_recursive(start, p)
                 quick_sort_recursive(p + 1, end)
 
-        quick_sort_recursive(0, len(self._blocks)-1)
+        quick_sort_recursive(0, len(self._blocks) - 1)
+        DrawingCanvas.set_is_sorted(True)
+        DrawingCanvas.update_blocks()
+
+    def merge_sort(self, canvas):
+        from uicomponents.DrawingCanvas import DrawingCanvas
+
+        # Merge function to combine two sorted halves
+        def merge(start, middle, end):
+            left_index = start
+            right_index = middle + 1
+
+            # Iterate until one of the halves is exhausted
+            while left_index <= middle and right_index <= end:
+                if self._blocks[left_index].random_number <= self._blocks[right_index].random_number:
+                    left_index += 1
+                else:
+                    # Move the elements to their correct positions
+                    for i in range(right_index, left_index, -1):
+                        ArrayBlock.swap(self._blocks[i], self._blocks[i-1], canvas)
+                        self._blocks[i], self._blocks[i - 1] = self._blocks[i - 1], self._blocks[i]
+                    left_index += 1
+                    middle += 1
+                    right_index += 1
+
+        def merge_sort_recursive(start, end):
+            if start < end:
+                middle = (start + end) // 2
+                merge_sort_recursive(start, middle)
+                merge_sort_recursive(middle + 1, end)
+                merge(start, middle, end)
+
+        merge_sort_recursive(0, len(self._blocks) - 1)
         DrawingCanvas.set_is_sorted(True)
         DrawingCanvas.update_blocks()

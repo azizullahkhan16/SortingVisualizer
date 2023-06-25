@@ -54,6 +54,11 @@ class DrawingCanvas(tk.Canvas):
     def quick_sort(cls):
         cls.blocks.quick_sort(cls.canvas)
 
+    # This function calls the block's merge sort
+    @classmethod
+    def merge_sort(cls):
+        cls.blocks.merge_sort(cls.canvas)
+
     # This function returns the canvas on which we are drawing
     @classmethod
     def get_canvas(cls):
