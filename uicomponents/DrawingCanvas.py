@@ -64,6 +64,16 @@ class DrawingCanvas(tk.Canvas):
     def tim_sort(cls):
         cls.blocks.tim_sort(cls.canvas)
 
+    # This function calls the block's shell sort
+    @classmethod
+    def shell_sort(cls):
+        cls.blocks.shell_sort(cls.canvas)
+
+    # This function calls the block's counting sort
+    @classmethod
+    def counting_sort(cls):
+        cls.blocks.counting_sort(cls.canvas)
+
     # This function returns the canvas on which we are drawing
     @classmethod
     def get_canvas(cls):

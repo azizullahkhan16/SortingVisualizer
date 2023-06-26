@@ -175,7 +175,7 @@ class ArrayBlock:
                 current = self._blocks[k]
                 j = k - 1
                 while j >= lo and current.random_number < self._blocks[j].random_number:
-                    ArrayBlock.swap(self._blocks[j+1], self._blocks[j], canvas)
+                    ArrayBlock.swap(self._blocks[j + 1], self._blocks[j], canvas)
                     self._blocks[j + 1] = self._blocks[j]
                     self._blocks[j] = current
                     j -= 1
@@ -225,4 +225,62 @@ class ArrayBlock:
         # Update canvas and set is_sorted flag
         DrawingCanvas.set_is_sorted(True)
         DrawingCanvas.update_blocks()
+
+    def shell_sort(self, canvas):
+        from uicomponents.DrawingCanvas import DrawingCanvas
+
+        gap = len(self._blocks) // 2
+
+        while gap > 0:
+            for i in range(gap, len(self._blocks)):
+                current = self._blocks[i]
+                j = i
+                while j >= gap and current.random_number < self._blocks[j - gap].random_number:
+                    over_write = current
+                    ArrayBlock.swap(over_write, self._blocks[j-gap], canvas)
+                    self._blocks[j] = self._blocks[j - gap]
+                    self._blocks[j - gap] = current
+                    j -= gap
+                self._blocks[j] = current
+                self.current_pass += 1
+
+            gap = gap // 2
+
+        DrawingCanvas.set_is_sorted(True)
+        DrawingCanvas.update_blocks()
+
+    def counting_sort(self, canvas):
+        from uicomponents.DrawingCanvas import DrawingCanvas
+
+        # Find the maximum element in the array to determine the range
+        max_value = max(self._blocks, key=lambda block: block.random_number).random_number
+
+        # Create a counting array with size max_value+1 and initialize with zeros
+        count = [0] * (max_value + 1)
+
+        # Count the occurrences of each element in the array
+        for block in self._blocks:
+            count[block.random_number] += 1
+
+        # Modify the original array based on the counts
+        index = 0
+        for i in range(len(count)):
+            while count[i] > 0:
+                current = self._blocks[index]
+                current.random_number = i
+
+                index += 1
+                count[i] -= 1
+
+        DrawingCanvas.set_is_sorted(True)
+        DrawingCanvas.update_blocks()
+
+        for block in self._blocks:
+            print(block.random_number)
+
+
+
+
+
+
 

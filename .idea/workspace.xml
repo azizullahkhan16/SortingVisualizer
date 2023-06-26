@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="tim sort implemented">
+    <list default="true" id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="Analysis Space added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datastructure/ArrayBlock.py" beforeDir="false" afterPath="$PROJECT_DIR$/datastructure/ArrayBlock.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/Board.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uicomponents/DrawingCanvas.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/DrawingCanvas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uicomponents/Menubar.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/Menubar.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687716882586</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Analysis Space added">
+      <created>1687721208905</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1687721208905</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -110,16 +117,12 @@
     <MESSAGE value="Minor bugs fixed&#10;Bubble, insertion, selection and quick sort implemented" />
     <MESSAGE value="merge sort implemented" />
     <MESSAGE value="tim sort implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="tim sort implemented" />
+    <MESSAGE value="Analysis Space added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Analysis Space added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/animation/Animation.py</url>
-          <line>3</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/datastructure/ArrayBlock.py</url>
           <line>92</line>
