@@ -253,7 +253,7 @@ class ArrayBlock:
         from uicomponents.DrawingCanvas import DrawingCanvas
 
         # Find the maximum element in the array to determine the range
-        max_value = max(self._blocks, key=lambda block: block.random_number).random_number
+        max_value = max(self._blocks, key=lambda blocks: blocks.random_number).random_number
 
         # Create a counting array with size max_value+1 and initialize with zeros
         count = [0] * (max_value + 1)
@@ -292,8 +292,98 @@ class ArrayBlock:
         DrawingCanvas.set_is_sorted(True)
         DrawingCanvas.update_blocks()
 
+    def radix_sort(self, canvas):
+        from uicomponents.DrawingCanvas import DrawingCanvas
+
+        # Find the maximum number in the array to determine the number of passes
+        max_value = max(self._blocks, key=lambda block: block.random_number).random_number
+
+        def counting_sort(expo):
+            n = len(self._blocks)
+
+            # Create a counting array with size 10 and initialize with zeros
+            count = [0] * 10
+            output = [None] * n
+
+            # Count the occurrences of each digit at the given place (expo)
+            for i in range(n):
+                digit = (self._blocks[i].random_number // expo) % 10
+                count[digit] += 1
+
+            # Calculate the starting position for each digit in the sorted array
+            for i in range(1, 10):
+                count[i] += count[i - 1]
+
+            # Rearrange the blocks based on the digit at the given place
+            i = n - 1
+            while i >= 0:
+                digit = (self._blocks[i].random_number // expo) % 10
+                count[digit] -= 1
+
+                # Update the output array with the blocks in their correct positions
+                correct_pos = count[digit]
+                output[correct_pos] = self._blocks[i]
+                i -= 1
+                ArrayBlock.swap(self._blocks[i], self._blocks[correct_pos], canvas)
+
+            for i in
+
+        # Perform counting sort for each digit place, starting from the least significant digit
+        exp = 1
+        while max_value // exp > 0:
+            counting_sort(exp)
+            exp *= 10
+
+        DrawingCanvas.set_is_sorted(True)
+        DrawingCanvas.update_blocks()
+
         for block in self._blocks:
             print(block.random_number)
+
+    def heap_sort(self, canvas):
+        from uicomponents.DrawingCanvas import DrawingCanvas
+        n = len(self._blocks)
+
+        # Build a max heap from the input list
+        for i in range(n // 2 - 1, -1, -1):
+            self.heapify(n, i, canvas)
+
+        # Perform the sorting by repeatedly extracting the maximum element
+        for i in range(n - 1, 0, -1):
+            # Swap the maximum element (root) with the last element
+            ArrayBlock.swap(self._blocks[i], self._blocks[0], canvas)
+            self._blocks[0], self._blocks[i] = self._blocks[i], self._blocks[0]
+            if i > 2:
+                # Heapify the reduced heap
+                self.heapify(i, 0, canvas)
+
+        DrawingCanvas.set_is_sorted(True)
+        DrawingCanvas.update_blocks()
+
+    def heapify(self, n, root, canvas):
+        largest = root
+        left = 2 * root + 1
+        right = 2 * root + 2
+
+        # Find the largest element among the root and its children
+        if left < n and self._blocks[left].random_number > self._blocks[largest].random_number:
+            largest = left
+
+        if right < n and self._blocks[right].random_number > self._blocks[largest].random_number:
+            largest = right
+
+        if largest != root:
+            # Swap the root with the largest element
+            ArrayBlock.swap(self._blocks[largest], self._blocks[root], canvas)
+            self._blocks[root], self._blocks[largest] = self._blocks[largest], self._blocks[root]
+
+            # Recursively heapify the affected subtree
+            self.heapify(n, largest, canvas)
+
+
+
+
+
 
 
 

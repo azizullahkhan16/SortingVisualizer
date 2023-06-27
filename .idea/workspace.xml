@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="Analysis Space added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/animation/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/datastructure/ArrayBlock.py" beforeDir="false" afterPath="$PROJECT_DIR$/datastructure/ArrayBlock.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uicomponents/DrawingCanvas.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/DrawingCanvas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uicomponents/Menubar.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/Menubar.py" afterDir="false" />
@@ -30,13 +31,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Board" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SortingVisualizer" />

@@ -74,6 +74,17 @@ class DrawingCanvas(tk.Canvas):
     def counting_sort(cls):
         cls.blocks.counting_sort(cls.canvas)
 
+    # This function calls the block's radix sort
+    @classmethod
+    def radix_sort(cls):
+        cls.blocks.radix_sort(cls.canvas)
+
+
+    # This function calls the block's heap sort
+    @classmethod
+    def heap_sort(cls):
+        cls.blocks.heap_sort(cls.canvas)
+
     # This function returns the canvas on which we are drawing
     @classmethod
     def get_canvas(cls):

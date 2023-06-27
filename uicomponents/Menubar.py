@@ -133,7 +133,7 @@ class MenuBar(tk.Frame):
                     DrawingCanvas.set_animation_paused(False)
                 else:
                     if not DrawingCanvas.get_is_sorted():
-                        DrawingCanvas.quick_sort()
+                        DrawingCanvas.radix_sort()
                     update_play_pause_button()
 
             else:
