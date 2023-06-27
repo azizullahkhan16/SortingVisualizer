@@ -262,15 +262,32 @@ class ArrayBlock:
         for block in self._blocks:
             count[block.random_number] += 1
 
-        # Modify the original array based on the counts
-        index = 0
+        # Calculate the starting position for each element in the sorted array
+        total = 0
         for i in range(len(count)):
-            while count[i] > 0:
-                current = self._blocks[index]
-                current.random_number = i
+            count[i], total = total, count[i] + total
 
-                index += 1
-                count[i] -= 1
+        # Perform the sorting by swapping the blocks
+        i = 0
+        while i < len(self._blocks):
+            block = self._blocks[i]
+            value = block.random_number
+            correct_pos = count[value]
+            self.current_pass += 1
+
+            if correct_pos == i:
+                i += 1
+            else:
+                # Handle swapping for equal values
+                if block.random_number == self._blocks[correct_pos].random_number:
+                    if correct_pos == i + 1:
+                        # Swap the second equal number
+                        ArrayBlock.swap(self._blocks[i], self._blocks[correct_pos], canvas)
+                        self._blocks[i], self._blocks[correct_pos] = self._blocks[correct_pos], self._blocks[i]
+                    i += 1
+                else:
+                    ArrayBlock.swap(self._blocks[correct_pos], self._blocks[i], canvas)
+                    self._blocks[i], self._blocks[correct_pos] = self._blocks[correct_pos], self._blocks[i]
 
         DrawingCanvas.set_is_sorted(True)
         DrawingCanvas.update_blocks()
