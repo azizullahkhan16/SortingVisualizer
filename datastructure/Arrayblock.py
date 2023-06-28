@@ -9,7 +9,7 @@ class ArrayBlock:
         from uicomponents.DrawingCanvas import DrawingCanvas
         self.canvas_width = 1240
         self.canvas_height = 200
-        self.current_pass = 0
+        self.num_swaps = 0
         self._length = num_blocks
         self._blocks = []
 
@@ -36,11 +36,11 @@ class ArrayBlock:
     def delete_blocks(self):
         self._blocks = None
 
-    @classmethod
-    def swap(cls, b1, b2, canvas):
+    def swap(self, b1, b2, canvas):
         b1.set_color("#cb6ce6")
         b2.set_color("#cb6ce6")
         Animation.swap(b1, b2)
+        self.num_swaps += 1
         canvas.update()
         b1.set_color("#E44444")
         b2.set_color("#E44444")
@@ -56,9 +56,8 @@ class ArrayBlock:
                 if self._blocks is None:
                     return
                 if self._blocks[j].random_number > self._blocks[j + 1].random_number:
-                    ArrayBlock.swap(self._blocks[j + 1], self._blocks[j], canvas)
+                    self.swap(self._blocks[j + 1], self._blocks[j], canvas)
                     self._blocks[j], self._blocks[j + 1] = self._blocks[j + 1], self._blocks[j]
-            self.current_pass += 1
 
         DrawingCanvas.set_is_sorted(True)
         DrawingCanvas.update_blocks()
@@ -73,12 +72,11 @@ class ArrayBlock:
             j = i - 1
             while j >= 0 and current.random_number < self._blocks[j].random_number:
                 over_write = current
-                ArrayBlock.swap(over_write, self._blocks[j], canvas)
+                self.swap(over_write, self._blocks[j], canvas)
                 self._blocks[j + 1] = self._blocks[j]
                 self._blocks[j] = current
                 j -= 1
             self._blocks[j + 1] = current
-            self.current_pass += 1
 
         DrawingCanvas.set_is_sorted(True)
         DrawingCanvas.update_blocks()
@@ -93,9 +91,8 @@ class ArrayBlock:
             for j in range(i + 1, n):
                 if self._blocks[min_idx].random_number > self._blocks[j].random_number:
                     min_idx = j
-            ArrayBlock.swap(self._blocks[min_idx], self._blocks[i], canvas)
+            self.swap(self._blocks[min_idx], self._blocks[i], canvas)
             self._blocks[i], self._blocks[min_idx] = self._blocks[min_idx], self._blocks[i]
-            self.current_pass += 1
 
         DrawingCanvas.set_is_sorted(True)
         DrawingCanvas.update_blocks()
@@ -114,7 +111,7 @@ class ArrayBlock:
                         hi -= 1
                     if lo <= hi:
                         if self._blocks[lo].random_number != self._blocks[hi].random_number:
-                            ArrayBlock.swap(self._blocks[hi], self._blocks[lo], canvas)
+                            self.swap(self._blocks[hi], self._blocks[lo], canvas)
                             self._blocks[lo], self._blocks[hi] = self._blocks[hi], self._blocks[lo]
                         lo += 1
                         hi -= 1
@@ -122,7 +119,6 @@ class ArrayBlock:
 
             if start < end:
                 p = partition(start, end)
-                self.current_pass += 1
                 quick_sort_recursive(start, p)
                 quick_sort_recursive(p + 1, end)
 
@@ -145,7 +141,7 @@ class ArrayBlock:
                 else:
                     # Move the elements to their correct positions
                     for i in range(right_index, left_index, -1):
-                        ArrayBlock.swap(self._blocks[i], self._blocks[i - 1], canvas)
+                        self.swap(self._blocks[i], self._blocks[i - 1], canvas)
                         self._blocks[i], self._blocks[i - 1] = self._blocks[i - 1], self._blocks[i]
                     left_index += 1
                     middle += 1
@@ -154,7 +150,6 @@ class ArrayBlock:
         def merge_sort_recursive(start, end):
             if start < end:
                 middle = (start + end) // 2
-                self.current_pass += 1
                 merge_sort_recursive(start, middle)
                 merge_sort_recursive(middle + 1, end)
                 merge(start, middle, end)
@@ -175,11 +170,10 @@ class ArrayBlock:
                 current = self._blocks[k]
                 j = k - 1
                 while j >= lo and current.random_number < self._blocks[j].random_number:
-                    ArrayBlock.swap(self._blocks[j + 1], self._blocks[j], canvas)
+                    self.swap(self._blocks[j + 1], self._blocks[j], canvas)
                     self._blocks[j + 1] = self._blocks[j]
                     self._blocks[j] = current
                     j -= 1
-                self.current_pass += 1
 
         # Merge sort implementation
         def merge_sort(lo, hi):
@@ -203,7 +197,7 @@ class ArrayBlock:
                 else:
                     # Move the elements to their correct positions
                     for x in range(right_index, left_index, -1):
-                        ArrayBlock.swap(self._blocks[x], self._blocks[x - 1], canvas)
+                        self.swap(self._blocks[x], self._blocks[x - 1], canvas)
                         self._blocks[x], self._blocks[x - 1] = self._blocks[x - 1], self._blocks[x]
                     left_index += 1
                     mid += 1
@@ -216,7 +210,6 @@ class ArrayBlock:
         size = MIN_MERGE
         while size < n:
             for start in range(0, n, size * 2):
-                self.current_pass += 1
                 middle = start + size - 1
                 end = min((start + size * 2 - 1), (n - 1))
                 merge(start, middle, end)
@@ -237,12 +230,11 @@ class ArrayBlock:
                 j = i
                 while j >= gap and current.random_number < self._blocks[j - gap].random_number:
                     over_write = current
-                    ArrayBlock.swap(over_write, self._blocks[j - gap], canvas)
+                    self.swap(over_write, self._blocks[j - gap], canvas)
                     self._blocks[j] = self._blocks[j - gap]
                     self._blocks[j - gap] = current
                     j -= gap
                 self._blocks[j] = current
-                self.current_pass += 1
 
             gap = gap // 2
 
@@ -273,7 +265,6 @@ class ArrayBlock:
             block = self._blocks[i]
             value = block.random_number
             correct_pos = count[value]
-            self.current_pass += 1
 
             if correct_pos == i:
                 i += 1
@@ -282,11 +273,11 @@ class ArrayBlock:
                 if block.random_number == self._blocks[correct_pos].random_number:
                     if correct_pos == i + 1:
                         # Swap the second equal number
-                        ArrayBlock.swap(self._blocks[i], self._blocks[correct_pos], canvas)
+                        self.swap(self._blocks[i], self._blocks[correct_pos], canvas)
                         self._blocks[i], self._blocks[correct_pos] = self._blocks[correct_pos], self._blocks[i]
                     i += 1
                 else:
-                    ArrayBlock.swap(self._blocks[correct_pos], self._blocks[i], canvas)
+                    self.swap(self._blocks[correct_pos], self._blocks[i], canvas)
                     self._blocks[i], self._blocks[correct_pos] = self._blocks[correct_pos], self._blocks[i]
 
         DrawingCanvas.set_is_sorted(True)
@@ -338,7 +329,7 @@ class ArrayBlock:
                         j = i + 1
                         while self._blocks[j].random_number != output[i].random_number:
                             j += 1
-                        ArrayBlock.swap(self._blocks[j], self._blocks[i], canvas)
+                        self.swap(self._blocks[j], self._blocks[i], canvas)
                         self._blocks[i], self._blocks[j] = self._blocks[j], self._blocks[i]
 
             # Copy the sorted blocks from the output array back to the original array
@@ -367,7 +358,7 @@ class ArrayBlock:
 
             if largest != root:
                 # Swap the root with the largest element
-                ArrayBlock.swap(self._blocks[largest], self._blocks[root], canvas)
+                self.swap(self._blocks[largest], self._blocks[root], canvas)
                 self._blocks[root], self._blocks[largest] = self._blocks[largest], self._blocks[root]
 
                 # Recursively heapify the affected subtree
@@ -380,7 +371,7 @@ class ArrayBlock:
         # Perform the sorting by repeatedly extracting the maximum element
         for i in range(n - 1, 0, -1):
             # Swap the maximum element (root) with the last element
-            ArrayBlock.swap(self._blocks[i], self._blocks[0], canvas)
+            self.swap(self._blocks[i], self._blocks[0], canvas)
             self._blocks[0], self._blocks[i] = self._blocks[i], self._blocks[0]
             if i > 2:
                 # Heapify the reduced heap
@@ -400,7 +391,7 @@ class ArrayBlock:
                 ancestor = (k - 1) // 2
                 while k > 0 and self._blocks[k].random_number > self._blocks[ancestor].random_number:
                     # Swap blocks in the block list and visualize the swapping
-                    ArrayBlock.swap(self._blocks[ancestor], self._blocks[k], canvas)
+                    self.swap(self._blocks[ancestor], self._blocks[k], canvas)
                     self._blocks[k], self._blocks[ancestor] = self._blocks[ancestor], self._blocks[k]
                     k = ancestor
                     ancestor = (k - 1) // 2
@@ -412,7 +403,7 @@ class ArrayBlock:
         n = len(self._blocks)
         for i in range(n - 1, 0, -1):
             # Swap the maximum element (root) with the last element
-            ArrayBlock.swap(self._blocks[0], self._blocks[i], canvas)
+            self.swap(self._blocks[0], self._blocks[i], canvas)
             self._blocks[i], self._blocks[0] = self._blocks[0], self._blocks[i]
 
             if i > 1:
@@ -433,7 +424,7 @@ class ArrayBlock:
                         break
 
                     # Swap blocks in the block list and visualize the swapping
-                    ArrayBlock.swap(self._blocks[largest], self._blocks[parent], canvas)
+                    self.swap(self._blocks[largest], self._blocks[parent], canvas)
                     self._blocks[parent], self._blocks[largest] = self._blocks[largest], self._blocks[parent]
                     parent = largest
 

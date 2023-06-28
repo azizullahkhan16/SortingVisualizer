@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="Radix sort implemented">
+    <list default="true" id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="Tree sort implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datastructure/ArrayBlock.py" beforeDir="false" afterPath="$PROJECT_DIR$/datastructure/ArrayBlock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datastructure/ArrayBlock.py" beforeDir="false" afterPath="$PROJECT_DIR$/datastructure/Arrayblock.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datastructure/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/datastructure/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uicomponents/DrawingCanvas.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/DrawingCanvas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uicomponents/Menubar.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/Menubar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/window/ConfigWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/window/ConfigWindow.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,13 +32,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/user/Downloads/SortingAlgorithmAnimation-main",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Board" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SortingVisualizer" />
@@ -123,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687947843910</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Tree sort implemented">
+      <created>1687953083443</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1687953083443</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -134,17 +145,7 @@
     <MESSAGE value="Analysis Space added" />
     <MESSAGE value="heap sort implemented" />
     <MESSAGE value="Radix sort implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Radix sort implemented" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/datastructure/ArrayBlock.py</url>
-          <line>92</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Tree sort implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tree sort implemented" />
   </component>
 </project>

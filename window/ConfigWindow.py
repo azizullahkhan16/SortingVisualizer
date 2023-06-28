@@ -6,6 +6,7 @@ from uicomponents.DrawingCanvas import DrawingCanvas
 
 class ConfigWindow(tk.Toplevel):
     num_blocks = 10  # Class variable to store the number of blocks
+    sort_algo = "Merge Sort"
 
     def __init__(self, master):
         super().__init__(master)
@@ -56,9 +57,9 @@ class ConfigWindow(tk.Toplevel):
         sort_label = tk.Label(frame, text="Sorting Algorithm:", bg="#f0f0f0", font=("Arial", 12))
         sort_label.pack(pady=10)
 
-        sorting_algorithms = ["Bubble Sort", "Merge Sort", "Quick Sort", "Insertion Sort", "Counting Sort",
-                              "Selection Sort"]
-        self.sort_var = tk.StringVar(value="Bubble Sort")
+        sorting_algorithms = ["Merge Sort", "Quick Sort", "Heap Sort", "Radix Sort", "Tim Sort", "Counting Sort",
+                              "Shell Sort", "Insertion Sort", "Selection Sort", "Bubble Sort", "Tree Sort"]
+        self.sort_var = tk.StringVar(value="Merge Sort")
         self.sort_dropdown = ttk.Combobox(frame, textvariable=self.sort_var, values=sorting_algorithms,
                                           state="readonly", font=("Arial", 12))
         self.sort_dropdown.pack()
@@ -76,6 +77,7 @@ class ConfigWindow(tk.Toplevel):
     def apply_configuration(self):
         DrawingCanvas.delete_blocks()
         DrawingCanvas.create_blocks(DrawingCanvas.get_canvas(), ConfigWindow.num_blocks)
+        ConfigWindow.sort_algo = self.sort_var.get()
         self.destroy()
 
 

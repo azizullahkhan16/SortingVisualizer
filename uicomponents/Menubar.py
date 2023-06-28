@@ -133,7 +133,29 @@ class MenuBar(tk.Frame):
                     DrawingCanvas.set_animation_paused(False)
                 else:
                     if not DrawingCanvas.get_is_sorted():
-                        DrawingCanvas.tree_sort()
+                        match ConfigWindow.sort_algo:
+                            case "Merge Sort":
+                                DrawingCanvas.merge_sort()
+                            case "Quick Sort":
+                                DrawingCanvas.quick_sort()
+                            case "Heap Sort":
+                                DrawingCanvas.heap_sort()
+                            case "Radix Sort":
+                                DrawingCanvas.radix_sort()
+                            case "Tim Sort":
+                                DrawingCanvas.tim_sort()
+                            case "Counting Sort":
+                                DrawingCanvas.counting_sort()
+                            case "Shell Sort":
+                                DrawingCanvas.shell_sort()
+                            case "Insertion Sort":
+                                DrawingCanvas.insertion_sort()
+                            case "Selection Sort":
+                                DrawingCanvas.selection_sort()
+                            case "Bubble Sort":
+                                DrawingCanvas.bubble_sort()
+                            case "Tree Sort":
+                                DrawingCanvas.tree_sort()
                     update_play_pause_button()
 
             else:

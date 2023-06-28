@@ -1,5 +1,5 @@
 import tkinter as tk
-from datastructure.ArrayBlock import ArrayBlock
+from datastructure.Arrayblock import ArrayBlock
 
 
 class DrawingCanvas(tk.Canvas):
@@ -100,7 +100,7 @@ class DrawingCanvas(tk.Canvas):
         cls.blocks.paint(canvas)
 
         # Display current pass text in the top right corner
-        current_pass_text = "Current Pass: " + str(cls.blocks.current_pass)
+        current_pass_text = "Swaps: " + str(cls.blocks.num_swaps)
         if cls.is_sorted:
             color = "#00bf63"
         else:
@@ -125,9 +125,9 @@ class DrawingCanvas(tk.Canvas):
         cls.is_sorted = is_sorted
 
     @classmethod
-    def get_current_pass(cls):
-        return cls.blocks.current_pass
+    def get_num_swaps(cls):
+        return cls.blocks.num_swaps
 
     @classmethod
-    def set_current_pass(cls, current_pass):
-        cls.blocks.current_pass = current_pass
+    def set_num_swaps(cls, current_pass):
+        cls.blocks.num_swaps = current_pass
