@@ -3,8 +3,14 @@ from block.Block import Block
 
 def swap(b1: Block, b2: Block, delay=1):
     from uicomponents.DrawingCanvas import DrawingCanvas
+    is_positive = False
 
-    distance = abs(int(b1.get_x() - b2.get_x()))
+    distance = int(b1.get_x() - b2.get_x())
+
+    if distance > 0:
+        is_positive = True
+    else:
+        distance = abs(distance)
 
     def animate_swap(step):
 
@@ -18,8 +24,12 @@ def swap(b1: Block, b2: Block, delay=1):
             DrawingCanvas.canvas.after(delay, lambda: animate_swap(step + 1))
         else:
             if step < int(1.1 * b1.length) + distance:
-                b2.set_x(b2.get_x() + 1)
-                b1.set_x(b1.get_x() - 1)
+                if not is_positive:
+                    b2.set_x(b2.get_x() - 1)
+                    b1.set_x(b1.get_x() + 1)
+                else:
+                    b2.set_x(b2.get_x() + 1)
+                    b1.set_x(b1.get_x() - 1)
                 DrawingCanvas.update_blocks()
                 DrawingCanvas.canvas.after(delay, lambda: animate_swap(step + 1))
             else:

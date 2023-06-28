@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="Analysis Space added">
+    <list default="true" id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="heap sort implemented">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/animation/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/animation/Animation.py" beforeDir="false" afterPath="$PROJECT_DIR$/animation/Animation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datastructure/ArrayBlock.py" beforeDir="false" afterPath="$PROJECT_DIR$/datastructure/ArrayBlock.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/DrawingCanvas.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/DrawingCanvas.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uicomponents/Menubar.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/Menubar.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687721208905</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="heap sort implemented">
+      <created>1687884179245</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1687884179245</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -119,7 +125,8 @@
     <MESSAGE value="merge sort implemented" />
     <MESSAGE value="tim sort implemented" />
     <MESSAGE value="Analysis Space added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Analysis Space added" />
+    <MESSAGE value="heap sort implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="heap sort implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
