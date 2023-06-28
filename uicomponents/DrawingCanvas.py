@@ -64,7 +64,7 @@ class DrawingCanvas(tk.Canvas):
     def tim_sort(cls):
         cls.blocks.tim_sort(cls.canvas)
 
-    # This function calls the block's shell sort
+    # This function calls the block's Shell-sort
     @classmethod
     def shell_sort(cls):
         cls.blocks.shell_sort(cls.canvas)
@@ -79,11 +79,15 @@ class DrawingCanvas(tk.Canvas):
     def radix_sort(cls):
         cls.blocks.radix_sort(cls.canvas)
 
-
     # This function calls the block's heap sort
     @classmethod
     def heap_sort(cls):
         cls.blocks.heap_sort(cls.canvas)
+
+    # This function calls the block's tree sort
+    @classmethod
+    def tree_sort(cls):
+        cls.blocks.tree_sort(cls.canvas)
 
     # This function returns the canvas on which we are drawing
     @classmethod
@@ -127,5 +131,3 @@ class DrawingCanvas(tk.Canvas):
     @classmethod
     def set_current_pass(cls, current_pass):
         cls.blocks.current_pass = current_pass
-
-

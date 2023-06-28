@@ -388,3 +388,54 @@ class ArrayBlock:
 
         DrawingCanvas.set_is_sorted(True)
         DrawingCanvas.update_blocks()
+
+    def tree_sort(self, canvas):
+        from uicomponents.DrawingCanvas import DrawingCanvas
+
+        # Convert the block list into a binary tree-like structure
+        def build_tree():
+            num = len(self._blocks)
+
+            for k in range(num):
+                ancestor = (k - 1) // 2
+                while k > 0 and self._blocks[k].random_number > self._blocks[ancestor].random_number:
+                    # Swap blocks in the block list and visualize the swapping
+                    ArrayBlock.swap(self._blocks[ancestor], self._blocks[k], canvas)
+                    self._blocks[k], self._blocks[ancestor] = self._blocks[ancestor], self._blocks[k]
+                    k = ancestor
+                    ancestor = (k - 1) // 2
+
+        # Build the binary tree-like structure within the block list
+        build_tree()
+
+        # Sort the blocks by repeatedly extracting the maximum element
+        n = len(self._blocks)
+        for i in range(n - 1, 0, -1):
+            # Swap the maximum element (root) with the last element
+            ArrayBlock.swap(self._blocks[0], self._blocks[i], canvas)
+            self._blocks[i], self._blocks[0] = self._blocks[0], self._blocks[i]
+
+            if i > 1:
+                # Heapify the reduced heap
+                parent = 0
+                while True:
+                    left_child = 2 * parent + 1
+                    right_child = 2 * parent + 2
+                    largest = parent
+
+                    if left_child < i and self._blocks[left_child].random_number > self._blocks[largest].random_number:
+                        largest = left_child
+
+                    if right_child < i and self._blocks[right_child].random_number > self._blocks[largest].random_number:
+                        largest = right_child
+
+                    if largest == parent:
+                        break
+
+                    # Swap blocks in the block list and visualize the swapping
+                    ArrayBlock.swap(self._blocks[largest], self._blocks[parent], canvas)
+                    self._blocks[parent], self._blocks[largest] = self._blocks[largest], self._blocks[parent]
+                    parent = largest
+
+        DrawingCanvas.set_is_sorted(True)
+        DrawingCanvas.update_blocks()
