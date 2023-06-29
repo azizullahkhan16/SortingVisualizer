@@ -13,6 +13,8 @@ class MenuBar(tk.Frame):
 
     def __init__(self, master, **kwargs):
         super().__init__(master, **kwargs)
+        self.photo_image_pause_pressed = None
+        self.photo_image_play_unpressed = None
         self.configure(bg="#373737")
         self.is_playing = False
 
@@ -84,14 +86,6 @@ class MenuBar(tk.Frame):
         DrawingCanvas.delete_blocks()
         DrawingCanvas.create_blocks(DrawingCanvas.get_canvas(), ConfigWindow.num_blocks)
 
-    # def update_config_button_state(self):
-    #     if not self.is_playing:
-    #         self.config_button.config(state=tk.NORMAL)  # Enable the config button
-    #     else:
-    #         self.config_button.config(state=tk.DISABLED)  # Disable the config button
-    #
-    #     self.after(1, self.update_config_button_state)  # Schedule the next update
-
     def set_icon(self, button, icon_path_unpressed, icon_path_pressed):
         icon_image_unpressed = Image.open(icon_path_unpressed)
         icon_image_unpressed = icon_image_unpressed.resize((30, 30))  # Adjust the size as needed
@@ -115,13 +109,13 @@ class MenuBar(tk.Frame):
                 self.is_playing = not self.is_playing
                 self.config_button.config(state=tk.NORMAL)  # Enable the config button
                 self.shuffle_button.config(state=tk.NORMAL)  # Enable the shuffle button
-                self.play_pause_button.config(image=photo_image_play_unpressed)
+                self.play_pause_button.config(image=self.photo_image_play_unpressed)
                 self.play_pause_button_tooltip.update_tooltip_text(text="Sort")
 
         def on_button_click(event=None):
             self.is_playing = not self.is_playing
             if self.is_playing:
-                self.play_pause_button.config(image=photo_image_pause_pressed)
+                self.play_pause_button.config(image=self.photo_image_pause_pressed)
                 self.play_pause_button_tooltip.update_tooltip_text(text="Stop")
 
                 self.config_button.config(state=tk.DISABLED)  # disable the config button
@@ -159,7 +153,7 @@ class MenuBar(tk.Frame):
                     update_play_pause_button()
 
             else:
-                self.play_pause_button.config(image=photo_image_play_unpressed)
+                self.play_pause_button.config(image=self.photo_image_play_unpressed)
                 self.play_pause_button_tooltip.update_tooltip_text(text="Sort")
 
                 self.config_button.config(state=tk.NORMAL)  # Enable the config button
@@ -171,15 +165,30 @@ class MenuBar(tk.Frame):
 
         icon_image_play_unpressed = Image.open(icon_path_play_unpressed)
         icon_image_play_unpressed = icon_image_play_unpressed.resize((30, 30))
-        photo_image_play_unpressed = ImageTk.PhotoImage(icon_image_play_unpressed)
+        self.photo_image_play_unpressed = ImageTk.PhotoImage(icon_image_play_unpressed)
 
         icon_image_pause_pressed = Image.open(icon_path_pause_pressed)
         icon_image_pause_pressed = icon_image_pause_pressed.resize((30, 30))
-        photo_image_pause_pressed = ImageTk.PhotoImage(icon_image_pause_pressed)
+        self.photo_image_pause_pressed = ImageTk.PhotoImage(icon_image_pause_pressed)
 
-        self.play_pause_button.config(image=photo_image_play_unpressed)
-        self.play_pause_button.image = photo_image_play_unpressed
+        self.play_pause_button.config(image=self.photo_image_play_unpressed)
+        self.play_pause_button.image = self.photo_image_play_unpressed
         self.play_pause_button.bind("<Button-1>", on_button_click)
 
         # Start the periodic update of the play/pause button state
         update_play_pause_button()
+
+    def pause_on_minimize(self, event):
+        if not DrawingCanvas.get_animation_paused() and not DrawingCanvas.get_is_sorted():
+            self.is_playing = not self.is_playing
+
+            self.play_pause_button.config(image=self.photo_image_play_unpressed)
+            self.play_pause_button_tooltip.update_tooltip_text(text="Sort")
+
+            self.config_button.config(state=tk.NORMAL)  # Enable the config button
+            self.shuffle_button.config(state=tk.NORMAL)  # Enable the shuffle button
+
+            # Add your logic for pause button clicked
+            print("Pause button clicked")
+            DrawingCanvas.set_animation_paused(True)
+

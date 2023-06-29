@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="Tree sort implemented">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datastructure/ArrayBlock.py" beforeDir="false" afterPath="$PROJECT_DIR$/datastructure/Arrayblock.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/datastructure/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/datastructure/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/DrawingCanvas.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/DrawingCanvas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/Menubar.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/Menubar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/window/ConfigWindow.py" beforeDir="false" afterPath="$PROJECT_DIR$/window/ConfigWindow.py" afterDir="false" />
-    </list>
+    <list default="true" id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="Minor bugs fixed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687953083443</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Minor bugs fixed">
+      <created>1687985483545</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1687985483545</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -146,6 +146,7 @@
     <MESSAGE value="heap sort implemented" />
     <MESSAGE value="Radix sort implemented" />
     <MESSAGE value="Tree sort implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tree sort implemented" />
+    <MESSAGE value="Minor bugs fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor bugs fixed" />
   </component>
 </project>

@@ -42,6 +42,9 @@ class Board:
         screen_height = window.winfo_screenheight()
         window.geometry(f"{window_width}x{window_height}+0+0")
 
+        # Bind the minimize button event to pause the animation
+        window.bind("<Unmap>", menu_bar.pause_on_minimize)
+
         # Start the main event loop
         window.mainloop()
 
