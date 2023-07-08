@@ -36,6 +36,7 @@ class Board:
         # Create the analysis space
         analysis_space = AnalysisSpace(window, width=window_width, height=window_height - 200)
         analysis_space.place(x=0, y=200)
+        analysis_space.plot_scatter_graph()
 
         # Position the window in the top-left corner
         screen_width = window.winfo_screenwidth()

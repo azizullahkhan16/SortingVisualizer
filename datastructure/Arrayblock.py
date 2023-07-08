@@ -34,7 +34,7 @@ class ArrayBlock:
             block.paint(canvas)
 
     def delete_blocks(self):
-        self._blocks = None
+        self._blocks.clear()
 
     def swap(self, b1, b2, canvas):
         b1.set_color("#cb6ce6")
