@@ -8,19 +8,24 @@ import numpy as np
 
 
 class AnalysisSpace(tk.Frame):
+    analysis = None
+    graph_canvas = None
+
     def __init__(self, parent, **kwargs):
         super().__init__(parent, **kwargs)
         self.configure(bg="#000000")
         # Add your analysis space widgets and layout here
 
-    def bubble_sort(self, arr):
+    @classmethod
+    def bubble_sort(cls, arr):
         n = len(arr)
         for i in range(n):
             for j in range(0, n - i - 1):
                 if arr[j] > arr[j + 1]:
                     arr[j], arr[j + 1] = arr[j + 1], arr[j]
 
-    def insertion_sort(self, arr):
+    @classmethod
+    def insertion_sort(cls, arr):
         for i in range(1, len(arr)):
             key = arr[i]
             j = i - 1
@@ -29,7 +34,8 @@ class AnalysisSpace(tk.Frame):
                 j -= 1
             arr[j + 1] = key
 
-    def selection_sort(self, arr):
+    @classmethod
+    def selection_sort(cls, arr):
         for i in range(len(arr)):
             min_idx = i
             for j in range(i + 1, len(arr)):
@@ -37,14 +43,15 @@ class AnalysisSpace(tk.Frame):
                     min_idx = j
             arr[i], arr[min_idx] = arr[min_idx], arr[i]
 
-    def merge_sort(self, arr):
+    @classmethod
+    def merge_sort(cls, arr):
         if len(arr) > 1:
             mid = len(arr) // 2
             left_half = arr[:mid]
             right_half = arr[mid:]
 
-            self.merge_sort(left_half)
-            self.merge_sort(right_half)
+            cls.merge_sort(left_half)
+            cls.merge_sort(right_half)
 
             i = j = k = 0
             while i < len(left_half) and j < len(right_half):
@@ -66,7 +73,8 @@ class AnalysisSpace(tk.Frame):
                 j += 1
                 k += 1
 
-    def quick_sort(self, arr, low, high):
+    @classmethod
+    def quick_sort(cls, arr, low, high):
         def partition(arr, low, high):
             pivot = arr[high]
             i = low - 1
@@ -79,11 +87,11 @@ class AnalysisSpace(tk.Frame):
 
         if low < high:
             pivot_index = partition(arr, low, high)
-            self.quick_sort(arr, low, pivot_index - 1)
-            self.quick_sort(arr, pivot_index + 1, high)
+            cls.quick_sort(arr, low, pivot_index - 1)
+            cls.quick_sort(arr, pivot_index + 1, high)
 
-    def tim_sort(self, arr):
-
+    @classmethod
+    def tim_sort(cls, arr):
         def insertion_sort(arr, left=0, right=None):
             if right is None:
                 right = len(arr) - 1
@@ -139,7 +147,8 @@ class AnalysisSpace(tk.Frame):
                 merge(arr, start, mid, end)
             size *= 2
 
-    def heap_sort(self, arr):
+    @classmethod
+    def heap_sort(cls, arr):
         n = len(arr)
 
         def heapify(arr, n, i):
@@ -160,7 +169,8 @@ class AnalysisSpace(tk.Frame):
             arr[i], arr[0] = arr[0], arr[i]
             heapify(arr, i, 0)
 
-    def radix_sort(self, arr):
+    @classmethod
+    def radix_sort(cls, arr):
         if len(arr) > 1:
             max_num = max(arr)
 
@@ -191,7 +201,8 @@ class AnalysisSpace(tk.Frame):
                 counting_sort(arr, exp)
                 exp *= 10
 
-    def counting_sort(self, arr):
+    @classmethod
+    def counting_sort(cls, arr):
         if len(arr) > 0:
             max_val = max(arr)
             count = [0] * (max_val + 1)
@@ -210,7 +221,8 @@ class AnalysisSpace(tk.Frame):
             for i in range(len(arr)):
                 arr[i] = sorted_arr[i]
 
-    def shell_sort(self, arr):
+    @classmethod
+    def shell_sort(cls, arr):
         n = len(arr)
         gap = n // 2
         while gap > 0:
@@ -223,7 +235,8 @@ class AnalysisSpace(tk.Frame):
                 arr[j] = temp
             gap //= 2
 
-    def tree_sort(self, arr):
+    @classmethod
+    def tree_sort(cls, arr):
         def insert(root, value):
             if root is None:
                 return {'value': value, 'left': None, 'right': None}
@@ -248,7 +261,9 @@ class AnalysisSpace(tk.Frame):
         arr.clear()
         arr.extend(sorted_arr)
 
-    def plot_scatter_graph(self):
+    @classmethod
+    def plot_scatter_graph(cls):
+
         # Initialize lists to store values
         n_values = []
         time_taken = []
@@ -263,27 +278,27 @@ class AnalysisSpace(tk.Frame):
 
             match ConfigWindow.sort_algo:
                 case "Merge Sort":
-                    self.merge_sort(arr)
+                    cls.merge_sort(arr)
                 case "Quick Sort":
-                    self.quick_sort(arr, 0, len(arr)-1)
+                    cls.quick_sort(arr, 0, len(arr) - 1)
                 case "Heap Sort":
-                    self.heap_sort(arr)
+                    cls.heap_sort(arr)
                 case "Radix Sort":
-                    self.radix_sort(arr)
+                    cls.radix_sort(arr)
                 case "Tim Sort":
-                    self.tim_sort(arr)
+                    cls.tim_sort(arr)
                 case "Counting Sort":
-                    self.counting_sort(arr)
+                    cls.counting_sort(arr)
                 case "Shell Sort":
-                    self.shell_sort(arr)
+                    cls.shell_sort(arr)
                 case "Insertion Sort":
-                    self.insertion_sort(arr)
+                    cls.insertion_sort(arr)
                 case "Selection Sort":
-                    self.selection_sort(arr)
+                    cls.selection_sort(arr)
                 case "Bubble Sort":
-                    self.bubble_sort(arr)
+                    cls.bubble_sort(arr)
                 case "Tree Sort":
-                    self.tree_sort(arr)
+                    cls.tree_sort(arr)
 
             end_time = time.time()
             elapsed_time = (end_time - start_time) * 1000  # Convert to milliseconds
@@ -318,7 +333,19 @@ class AnalysisSpace(tk.Frame):
         for text in legend.get_texts():
             text.set_color("white")
 
+        return fig
+
+    @classmethod
+    def create_graph(cls, analysis_space):
         # Create a Tkinter canvas
-        canvas = FigureCanvasTkAgg(fig, master=self)
-        canvas.draw()
-        canvas.get_tk_widget().place(x=550, y=0)
+        cls.analysis = analysis_space
+        cls.graph_canvas = FigureCanvasTkAgg(cls.plot_scatter_graph(), master=analysis_space)
+        cls.graph_canvas.draw()
+        cls.graph_canvas.get_tk_widget().place(x=550, y=0)
+
+    @classmethod
+    def update_graph(cls):
+        # Clear the canvas
+        cls.graph_canvas.get_tk_widget().destroy()
+        # Create a new graph
+        cls.create_graph(cls.analysis)

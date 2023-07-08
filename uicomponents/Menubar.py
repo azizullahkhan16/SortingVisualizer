@@ -4,6 +4,7 @@ from PIL import Image, ImageTk
 
 import animation.Animation
 from animation import Animation
+from uicomponents import AnalysisSpace
 from uicomponents.DrawingCanvas import DrawingCanvas
 from uicomponents.ToolTip import Tooltip
 from window.ConfigWindow import ConfigWindow

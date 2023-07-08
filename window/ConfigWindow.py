@@ -69,10 +69,12 @@ class ConfigWindow(tk.Toplevel):
         ConfigWindow.num_blocks = num_blocks  # Update the class variable
 
     def apply_configuration(self):
+        from uicomponents.AnalysisSpace import AnalysisSpace
         DrawingCanvas.delete_blocks()
         DrawingCanvas.create_blocks(DrawingCanvas.get_canvas(), ConfigWindow.num_blocks)
         ConfigWindow.sort_algo = self.sort_var.get()
         self.destroy()
+        AnalysisSpace.update_graph()
 
 
 
