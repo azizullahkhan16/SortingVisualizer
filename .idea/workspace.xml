@@ -6,17 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="Implementing sorting algorithms in analysis space">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bubbleSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/countingSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/heapSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/insertionSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mergeSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/quickSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/radixSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/selectionSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shellSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/timSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/treeSortCode.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/uicomponents/AnalysisSpace.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/AnalysisSpace.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uicomponents/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/Board.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uicomponents/Menubar.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/Menubar.py" afterDir="false" />
@@ -172,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688816547528</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Implementing sorting algorithms in analysis space">
+      <created>1688821415719</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1688821415719</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

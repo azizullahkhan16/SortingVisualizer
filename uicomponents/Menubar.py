@@ -32,7 +32,6 @@ class MenuBar(tk.Frame):
         self.config_button.pack(side=tk.TOP, pady=5)
         self.config_button.config(command=self.on_config_button_click)
         Tooltip(self.config_button, "Set Configuration")
-        # self.update_config_button_state()  # Update the initial state of the config button
 
         self.play_pause_button = tk.Button(
             self,

@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -5,6 +6,7 @@ import random
 import time
 from window.ConfigWindow import ConfigWindow
 import numpy as np
+from PIL import Image, ImageTk
 
 
 class AnalysisSpace(tk.Frame):
@@ -344,8 +346,126 @@ class AnalysisSpace(tk.Frame):
         cls.graph_canvas.get_tk_widget().place(x=550, y=0)
 
     @classmethod
+    def clear_analysis_space(cls):
+        # Destroy the existing widgets in the analysis space
+        for widget in cls.analysis.winfo_children():
+            widget.destroy()
+
+    @classmethod
     def update_graph(cls):
         # Clear the canvas
         cls.graph_canvas.get_tk_widget().destroy()
+        cls.clear_analysis_space()
         # Create a new graph
         cls.create_graph(cls.analysis)
+
+    @classmethod
+    def paint(cls):
+
+        # Get the absolute path of the script file
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
+        match ConfigWindow.sort_algo:
+            case "Merge Sort":
+                heading = "Merge Sort"
+                best_case = "O(n log n)"
+                average_case = "O(n log n)"
+                worst_case = "O(n log n)"
+                space_complex = "O(n)"
+                code_snippet = os.path.join(script_dir, "res/mergeSortCode.jpg")
+            case "Quick Sort":
+                heading = "Quick Sort"
+                best_case = "O(n log n)"
+                average_case = "O(n log n)"
+                worst_case = "O(n^2)"
+                space_complex = "O(log n)"
+                code_snippet = os.path.join(script_dir, "res/quickSortCode.jpg")
+            case "Heap Sort":
+                heading = "Heap Sort"
+                best_case = "O(n log n)"
+                average_case = "O(n log n)"
+                worst_case = "O(n log n)"
+                space_complex = "O(1)"
+                code_snippet = os.path.join(script_dir, "res/heapSortCode.jpg")
+            case "Radix Sort":
+                heading = "Radix Sort"
+                best_case = "O(kn)"
+                average_case = "O(kn)"
+                worst_case = "O(kn)"
+                space_complex = "O(k + n)"
+                code_snippet = os.path.join(script_dir, "res/radixSortCode.jpg")
+            case "Tim Sort":
+                heading = "Tim Sort"
+                best_case = "O(n)"
+                average_case = "O(n log n)"
+                worst_case = "O(n log n)"
+                space_complex = "O(n)"
+                code_snippet = os.path.join(script_dir, "res/timSortCode.jpg")
+            case "Counting Sort":
+                heading = "Counting Sort"
+                best_case = "O(n + k)"
+                average_case = "O(n + k)"
+                worst_case = "O(n + k)"
+                space_complex = "O(k)"
+                code_snippet = os.path.join(script_dir, "res/countingSortCode.jpg")
+            case "Shell Sort":
+                heading = "Shell Sort"
+                best_case = "O(n log n)"
+                average_case = "O(n log^2 n)"
+                worst_case = "O(n log^2 n)"
+                space_complex = "O(1)"
+                code_snippet = os.path.join(script_dir, "res/shellSortCode.jpg")
+            case "Insertion Sort":
+                heading = "Insertion Sort"
+                best_case = "O(n)"
+                average_case = "O(n^2)"
+                worst_case = "O(n^2)"
+                space_complex = "O(1)"
+                code_snippet = os.path.join(script_dir, "res/insertionSortCode.jpg")
+            case "Selection Sort":
+                heading = "Selection Sort"
+                best_case = "O(n^2)"
+                average_case = "O(n^2)"
+                worst_case = "O(n^2)"
+                space_complex = "O(1)"
+                code_snippet = os.path.join(script_dir, "res/selectionSortCode.jpg")
+            case "Bubble Sort":
+                heading = "Bubble Sort"
+                best_case = "O(n)"
+                average_case = "O(n^2)"
+                worst_case = "O(n^2)"
+                space_complex = "O(1)"
+                code_snippet = os.path.join(script_dir, "res/bubbleSortCode.jpg")
+            case "Tree Sort":
+                heading = "Tree Sort"
+                best_case = "O(n log n)"
+                average_case = "O(n log n)"
+                worst_case = "O(n^2)"
+                space_complex = "O(1)"
+                code_snippet = os.path.join(script_dir, "res/treeSortCode.jpg")
+
+         # Create the heading label
+        heading_label = tk.Label(cls.analysis, text=heading, font=("Helvetica", 20, "bold"), fg="white", bg="#000000")
+        heading_label.place(relx=0.5, rely=0.05, anchor="center")
+
+        # Create the code snippet
+        code_image = Image.open(code_snippet)
+        code_image = code_image.resize((500, 350))  # Resize the image if necessary
+        code_image = ImageTk.PhotoImage(code_image)
+        code_label = tk.Label(cls.analysis, image=code_image, bg="#000000")
+        code_label.image = code_image
+        code_label.place(x=20, y=50)
+
+        time_value_label = tk.Label(cls.analysis,
+                                    text=f"Best Case : {best_case}\nAverage Case : {average_case}\nWorst Case : {worst_case}",
+                                    font=("Helvetica", 12, "bold"), fg="white", bg="#000000")
+        time_value_label.place(x=20, y=410)
+
+        # Create the space complexity label
+        space_label = tk.Label(cls.analysis, text=f"Space Complexity : {space_complex}", font=("Helvetica", 12, "bold"), fg="white",
+                               bg="#000000")
+        space_label.place(x=20, y=470)
+
+
+
+

@@ -37,6 +37,7 @@ class Board:
         analysis_space = AnalysisSpace(window, width=window_width, height=window_height - 200)
         analysis_space.place(x=0, y=200)
         AnalysisSpace.create_graph(analysis_space)
+        AnalysisSpace.paint()
 
         # Position the window in the top-left corner
         screen_width = window.winfo_screenwidth()

@@ -75,6 +75,7 @@ class ConfigWindow(tk.Toplevel):
         ConfigWindow.sort_algo = self.sort_var.get()
         self.destroy()
         AnalysisSpace.update_graph()
+        AnalysisSpace.paint()
 
 
 
