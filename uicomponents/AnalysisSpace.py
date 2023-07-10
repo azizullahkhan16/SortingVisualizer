@@ -372,77 +372,77 @@ class AnalysisSpace(tk.Frame):
                 average_case = "O(n log n)"
                 worst_case = "O(n log n)"
                 space_complex = "O(n)"
-                code_snippet = os.path.join(script_dir, "res/mergeSortCode.jpg")
+                code_snippet = os.path.join(script_dir, "res/mergeSortCode.png")
             case "Quick Sort":
                 heading = "Quick Sort"
                 best_case = "O(n log n)"
                 average_case = "O(n log n)"
                 worst_case = "O(n^2)"
                 space_complex = "O(log n)"
-                code_snippet = os.path.join(script_dir, "res/quickSortCode.jpg")
+                code_snippet = os.path.join(script_dir, "res/quickSortCode.png")
             case "Heap Sort":
                 heading = "Heap Sort"
                 best_case = "O(n log n)"
                 average_case = "O(n log n)"
                 worst_case = "O(n log n)"
                 space_complex = "O(1)"
-                code_snippet = os.path.join(script_dir, "res/heapSortCode.jpg")
+                code_snippet = os.path.join(script_dir, "res/heapSortCode.png")
             case "Radix Sort":
                 heading = "Radix Sort"
                 best_case = "O(kn)"
                 average_case = "O(kn)"
                 worst_case = "O(kn)"
                 space_complex = "O(k + n)"
-                code_snippet = os.path.join(script_dir, "res/radixSortCode.jpg")
+                code_snippet = os.path.join(script_dir, "res/radixSortCode.png")
             case "Tim Sort":
                 heading = "Tim Sort"
                 best_case = "O(n)"
                 average_case = "O(n log n)"
                 worst_case = "O(n log n)"
                 space_complex = "O(n)"
-                code_snippet = os.path.join(script_dir, "res/timSortCode.jpg")
+                code_snippet = os.path.join(script_dir, "res/timSortCode.png")
             case "Counting Sort":
                 heading = "Counting Sort"
                 best_case = "O(n + k)"
                 average_case = "O(n + k)"
                 worst_case = "O(n + k)"
                 space_complex = "O(k)"
-                code_snippet = os.path.join(script_dir, "res/countingSortCode.jpg")
+                code_snippet = os.path.join(script_dir, "res/countingSortCode.png")
             case "Shell Sort":
                 heading = "Shell Sort"
                 best_case = "O(n log n)"
                 average_case = "O(n log^2 n)"
                 worst_case = "O(n log^2 n)"
                 space_complex = "O(1)"
-                code_snippet = os.path.join(script_dir, "res/shellSortCode.jpg")
+                code_snippet = os.path.join(script_dir, "res/shellSortCode.png")
             case "Insertion Sort":
                 heading = "Insertion Sort"
                 best_case = "O(n)"
                 average_case = "O(n^2)"
                 worst_case = "O(n^2)"
                 space_complex = "O(1)"
-                code_snippet = os.path.join(script_dir, "res/insertionSortCode.jpg")
+                code_snippet = os.path.join(script_dir, "res/insertionSortCode.png")
             case "Selection Sort":
                 heading = "Selection Sort"
                 best_case = "O(n^2)"
                 average_case = "O(n^2)"
                 worst_case = "O(n^2)"
                 space_complex = "O(1)"
-                code_snippet = os.path.join(script_dir, "res/selectionSortCode.jpg")
+                code_snippet = os.path.join(script_dir, "res/selectionSortCode.png")
             case "Bubble Sort":
                 heading = "Bubble Sort"
                 best_case = "O(n)"
                 average_case = "O(n^2)"
                 worst_case = "O(n^2)"
                 space_complex = "O(1)"
-                code_snippet = os.path.join(script_dir, "res/bubbleSortCode.jpg")
+                code_snippet = os.path.join(script_dir, "res/bubbleSortCode.png")
             case "Tree Sort":
                 heading = "Tree Sort"
                 best_case = "O(n log n)"
                 average_case = "O(n log n)"
                 worst_case = "O(n^2)"
                 space_complex = "O(1)"
-                code_snippet = os.path.join(script_dir, "res/treeSortCode.jpg")
+                code_snippet = os.path.join(script_dir, "res/treeSortCode.png")
 
          # Create the heading label
         heading_label = tk.Label(cls.analysis, text=heading, font=("Helvetica", 20, "bold"), fg="white", bg="#000000")
