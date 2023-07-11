@@ -64,12 +64,10 @@ class AnalysisSpace(tk.Frame):
                     arr[k] = right_half[j]
                     j += 1
                 k += 1
-
             while i < len(left_half):
                 arr[k] = left_half[i]
                 i += 1
                 k += 1
-
             while j < len(right_half):
                 arr[k] = right_half[j]
                 j += 1
@@ -315,7 +313,7 @@ class AnalysisSpace(tk.Frame):
         # Create scatter plot
         fig, ax = plt.subplots(figsize=(8, 5), facecolor='black')
         ax.scatter(n_values, time_taken, marker="x", color="red", alpha=0.5, s=5, label="Data Points")
-        ax.set_title("Sorting Algorithm Analysis", color="white")  # Set the title color to white
+        ax.set_title("Regression Plot", color="white")  # Set the title color to white
         ax.set_xlabel("Array Length", color="white")  # Set the x-axis label color to white
         ax.set_ylabel("Time Taken (milliseconds)", color="white")  # Set the y-axis label color to white
         ax.set_facecolor('black')  # Set the background color of the plot
@@ -372,7 +370,7 @@ class AnalysisSpace(tk.Frame):
                 average_case = "O(n log n)"
                 worst_case = "O(n log n)"
                 space_complex = "O(n)"
-                code_snippet = os.path.join(script_dir, "res/mergeSortCode.png")
+                code_snippet = os.path.join(script_dir, "res/2023-07-11 21_17_00-Greenshot.png")
             case "Quick Sort":
                 heading = "Quick Sort"
                 best_case = "O(n log n)"
@@ -445,26 +443,83 @@ class AnalysisSpace(tk.Frame):
                 code_snippet = os.path.join(script_dir, "res/treeSortCode.png")
 
          # Create the heading label
-        heading_label = tk.Label(cls.analysis, text=heading, font=("Helvetica", 20, "bold"), fg="white", bg="#000000")
+        heading_label = tk.Label(cls.analysis, text=heading, font=("Helvetica", 20, "bold"), fg="#00bf63", bg="#000000")
         heading_label.place(relx=0.5, rely=0.05, anchor="center")
 
         # Create the code snippet
         code_image = Image.open(code_snippet)
-        code_image = code_image.resize((500, 350))  # Resize the image if necessary
+
+        max_width = 500
+        max_height = 350
+
+        # Calculate the new dimensions while maintaining aspect ratio
+        width, height = code_image.size
+        aspect_ratio = width / height
+
+        if width > max_width or height > max_height:
+            if aspect_ratio > max_width / max_height:
+                new_width = max_width
+                new_height = int(max_width / aspect_ratio)
+            else:
+                new_width = int(max_height * aspect_ratio)
+                new_height = max_height
+        else:
+            new_width = width
+            new_height = height
+
+        code_image = code_image.resize((new_width, new_height), resample=Image.LANCZOS)
         code_image = ImageTk.PhotoImage(code_image)
+
         code_label = tk.Label(cls.analysis, image=code_image, bg="#000000")
         code_label.image = code_image
         code_label.place(x=20, y=50)
 
-        time_value_label = tk.Label(cls.analysis,
-                                    text=f"Best Case : {best_case}\nAverage Case : {average_case}\nWorst Case : {worst_case}",
-                                    font=("Helvetica", 12, "bold"), fg="white", bg="#000000")
-        time_value_label.place(x=20, y=410)
+        # Create the time complexity label
+        time_label = tk.Label(
+            cls.analysis,
+            text="Time Complexity",
+            font=("Helvetica", 12, "bold"),
+            fg="#F8D210",
+            bg="#000000"
+        )
+        time_label.place(x=20, y=410)
 
-        # Create the space complexity label
-        space_label = tk.Label(cls.analysis, text=f"Space Complexity : {space_complex}", font=("Helvetica", 12, "bold"), fg="white",
-                               bg="#000000")
+        time_best_value_label = tk.Label(
+            cls.analysis,
+            text=f"Best Case : {best_case}",
+            font=("Helvetica", 11, "bold"),
+            fg="#8D10F8",
+            bg="#000000"
+        )
+        time_best_value_label.place(x=20, y=440)
+
+        time_average_value_label = tk.Label(
+            cls.analysis,
+            text=f"Average Case : {average_case}",
+            font=("Helvetica", 11, "bold"),
+            fg="#8D10F8",
+            bg="#000000"
+        )
+        time_average_value_label.place(x=200, y=440)
+
+        time_worst_value_label = tk.Label(
+            cls.analysis,
+            text=f"Worst Case : {worst_case}",
+            font=("Helvetica", 11, "bold"),
+            fg="#8D10F8",
+            bg="#000000"
+        )
+        time_worst_value_label.place(x=400, y=440)
+
+        space_label = tk.Label(
+            cls.analysis,
+            text=f"Space Complexity : {space_complex}",
+            font=("Helvetica", 12, "bold"),
+            fg="#F8D210",
+            bg="#000000"
+        )
         space_label.place(x=20, y=470)
+
 
 
 

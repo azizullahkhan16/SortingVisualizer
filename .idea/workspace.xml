@@ -7,17 +7,6 @@
     <list default="true" id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="Changes in Analysis space">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uicomponents/AnalysisSpace.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/AnalysisSpace.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/bubbleSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/countingSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/heapSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/insertionSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/mergeSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/quickSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/radixSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/selectionSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/shellSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/timSortCode.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/treeSortCode.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688831816873</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Changes in Analysis space">
+      <created>1689006753889</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1689006753889</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
