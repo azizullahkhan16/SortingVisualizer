@@ -49,29 +49,18 @@ class AnalysisSpace(tk.Frame):
     def merge_sort(cls, arr):
         if len(arr) > 1:
             mid = len(arr) // 2
-            left_half = arr[:mid]
-            right_half = arr[mid:]
-
-            cls.merge_sort(left_half)
+            left_half, right_half = arr[:mid], arr[mid:]
+            cls.merge_sort(left_half);
             cls.merge_sort(right_half)
-
             i = j = k = 0
             while i < len(left_half) and j < len(right_half):
                 if left_half[i] < right_half[j]:
-                    arr[k] = left_half[i]
-                    i += 1
+                    arr[k] = left_half[i]; i += 1
                 else:
-                    arr[k] = right_half[j]
-                    j += 1
+                    arr[k] = right_half[j]; j += 1
                 k += 1
-            while i < len(left_half):
-                arr[k] = left_half[i]
-                i += 1
-                k += 1
-            while j < len(right_half):
-                arr[k] = right_half[j]
-                j += 1
-                k += 1
+            while i < len(left_half): arr[k] = left_half[i]; i += 1; k += 1
+            while j < len(right_half): arr[k] = right_half[j]; j += 1; k += 1
 
     @classmethod
     def quick_sort(cls, arr, low, high):
@@ -245,21 +234,17 @@ class AnalysisSpace(tk.Frame):
             else:
                 root['right'] = insert(root['right'], value)
             return root
-
         def in_order_traversal(root, sorted_arr):
             if root is None:
                 return
             in_order_traversal(root['left'], sorted_arr)
             sorted_arr.append(root['value'])
             in_order_traversal(root['right'], sorted_arr)
-
         root = None
         for num in arr:
             root = insert(root, num)
         sorted_arr = []
-        in_order_traversal(root, sorted_arr)
-        arr.clear()
-        arr.extend(sorted_arr)
+        in_order_traversal(root, sorted_arr); arr.clear();  arr.extend(sorted_arr)
 
     @classmethod
     def plot_scatter_graph(cls):
@@ -370,7 +355,7 @@ class AnalysisSpace(tk.Frame):
                 average_case = "O(n log n)"
                 worst_case = "O(n log n)"
                 space_complex = "O(n)"
-                code_snippet = os.path.join(script_dir, "res/2023-07-11 21_17_00-Greenshot.png")
+                code_snippet = os.path.join(script_dir, "res/mergeSortCode.png")
             case "Quick Sort":
                 heading = "Quick Sort"
                 best_case = "O(n log n)"
@@ -448,31 +433,11 @@ class AnalysisSpace(tk.Frame):
 
         # Create the code snippet
         code_image = Image.open(code_snippet)
-
-        max_width = 500
-        max_height = 350
-
-        # Calculate the new dimensions while maintaining aspect ratio
-        width, height = code_image.size
-        aspect_ratio = width / height
-
-        if width > max_width or height > max_height:
-            if aspect_ratio > max_width / max_height:
-                new_width = max_width
-                new_height = int(max_width / aspect_ratio)
-            else:
-                new_width = int(max_height * aspect_ratio)
-                new_height = max_height
-        else:
-            new_width = width
-            new_height = height
-
-        code_image = code_image.resize((new_width, new_height), resample=Image.LANCZOS)
+        #code_image = code_image.resize((500, 350))  # Resize the image if necessary
         code_image = ImageTk.PhotoImage(code_image)
-
         code_label = tk.Label(cls.analysis, image=code_image, bg="#000000")
         code_label.image = code_image
-        code_label.place(x=20, y=50)
+        code_label.place(x=0, y=50)
 
         # Create the time complexity label
         time_label = tk.Label(
