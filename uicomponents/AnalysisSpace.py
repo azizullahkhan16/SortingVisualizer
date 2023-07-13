@@ -298,7 +298,7 @@ class AnalysisSpace(tk.Frame):
         # Create scatter plot
         fig, ax = plt.subplots(figsize=(8, 5), facecolor='black')
         ax.scatter(n_values, time_taken, marker="x", color="red", alpha=0.5, s=5, label="Data Points")
-        ax.set_title("Regression Plot", color="white")  # Set the title color to white
+        ax.set_title("Regression Plot", color="#FFF027", fontweight="bold", fontsize=12)  # Set the title color to white
         ax.set_xlabel("Array Length", color="white")  # Set the x-axis label color to white
         ax.set_ylabel("Time Taken (milliseconds)", color="white")  # Set the y-axis label color to white
         ax.set_facecolor('black')  # Set the background color of the plot
@@ -431,6 +431,11 @@ class AnalysisSpace(tk.Frame):
         heading_label = tk.Label(cls.analysis, text=heading, font=("Helvetica", 20, "bold"), fg="#00bf63", bg="#000000")
         heading_label.place(relx=0.5, rely=0.05, anchor="center")
 
+        # Create the python code heading
+        python_label = tk.Label(cls.analysis, text="Python Code", font=("Helvetica", 12, "bold"), fg="#F8D210",
+                              bg="#000000", borderwidth=0)
+        python_label.place(x=250, y=30)
+
         # Create the code snippet
         code_image = Image.open(code_snippet)
         #code_image = code_image.resize((500, 350))  # Resize the image if necessary
@@ -440,50 +445,25 @@ class AnalysisSpace(tk.Frame):
         code_label.place(x=0, y=50)
 
         # Create the time complexity label
-        time_label = tk.Label(
-            cls.analysis,
-            text="Time Complexity",
-            font=("Helvetica", 12, "bold"),
-            fg="#F8D210",
-            bg="#000000"
-        )
-        time_label.place(x=20, y=410)
+        time_label = tk.Label(cls.analysis, text="Time Complexity", font=("Helvetica", 12, "bold"), fg="#F8D210",
+                              bg="#000000", borderwidth=0)
+        time_label.place(x=20, y=405)
 
-        time_best_value_label = tk.Label(
-            cls.analysis,
-            text=f"Best Case : {best_case}",
-            font=("Helvetica", 11, "bold"),
-            fg="#8D10F8",
-            bg="#000000"
-        )
-        time_best_value_label.place(x=20, y=440)
+        time_best_value_label = tk.Label(cls.analysis, text=f"Best Case : {best_case}", font=("Helvetica", 11, "bold"),
+                                         fg="#FF4C29", bg="#000000", borderwidth=0)
+        time_best_value_label.place(x=20, y=425)
 
-        time_average_value_label = tk.Label(
-            cls.analysis,
-            text=f"Average Case : {average_case}",
-            font=("Helvetica", 11, "bold"),
-            fg="#8D10F8",
-            bg="#000000"
-        )
-        time_average_value_label.place(x=200, y=440)
+        time_average_value_label = tk.Label(cls.analysis, text=f"Average Case : {average_case}",
+                                            font=("Helvetica", 11, "bold"), fg="#FF4C29", bg="#000000", borderwidth=0)
+        time_average_value_label.place(x=20, y=442)
 
-        time_worst_value_label = tk.Label(
-            cls.analysis,
-            text=f"Worst Case : {worst_case}",
-            font=("Helvetica", 11, "bold"),
-            fg="#8D10F8",
-            bg="#000000"
-        )
-        time_worst_value_label.place(x=400, y=440)
+        time_worst_value_label = tk.Label(cls.analysis, text=f"Worst Case : {worst_case}",
+                                          font=("Helvetica", 11, "bold"), fg="#FF4C29", bg="#000000", borderwidth=0)
+        time_worst_value_label.place(x=20, y=459)
 
-        space_label = tk.Label(
-            cls.analysis,
-            text=f"Space Complexity : {space_complex}",
-            font=("Helvetica", 12, "bold"),
-            fg="#F8D210",
-            bg="#000000"
-        )
-        space_label.place(x=20, y=470)
+        space_label = tk.Label(cls.analysis, text=f"Space Complexity : {space_complex}", font=("Helvetica", 12, "bold"),
+                               fg="#F8D210", bg="#000000", borderwidth=0)
+        space_label.place(x=20, y=476)
 
 
 

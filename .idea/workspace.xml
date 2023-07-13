@@ -7,17 +7,7 @@
     <list default="true" id="835f903e-0967-405f-a508-e621a49a7227" name="Changes" comment="Changes in Analysis space">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/uicomponents/AnalysisSpace.py" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/AnalysisSpace.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/2023-07-11 21_17_00-Greenshot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/bubbleSortCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/res/bubbleSortCode.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/countingSortCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/res/countingSortCode.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/heapSortCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/res/heapSortCode.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/insertionSortCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/res/insertionSortCode.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/mergeSortCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/res/mergeSortCode.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/quickSortCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/res/quickSortCode.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/radixSortCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/res/radixSortCode.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/selectionSortCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/res/selectionSortCode.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/shellSortCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/res/shellSortCode.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uicomponents/res/timSortCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/res/timSortCode.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uicomponents/res/treeSortCode.png" beforeDir="false" afterPath="$PROJECT_DIR$/uicomponents/res/treeSortCode.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,15 +29,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/user/PycharmProjects/pythonProject",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/user/PycharmProjects/pythonProject&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Board" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SortingVisualizer" />
@@ -197,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689092789527</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Changes in Analysis space">
+      <created>1689180289325</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1689180289325</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
