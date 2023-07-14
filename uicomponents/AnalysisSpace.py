@@ -254,12 +254,12 @@ class AnalysisSpace(tk.Frame):
         time_taken = []
 
         # Perform sorting algorithm for different n values
-        for n in range(0, 1001):
+        for n in range(0, 501):
             # Generate a random list of n elements
             arr = [random.randint(1, 1000) for _ in range(n)]
 
-            # Measure the time taken for sorting
-            start_time = time.time()
+            start_time = time.perf_counter()  # Record the start time before the sorting operation
+
 
             match ConfigWindow.sort_algo:
                 case "Merge Sort":
@@ -285,8 +285,8 @@ class AnalysisSpace(tk.Frame):
                 case "Tree Sort":
                     cls.tree_sort(arr)
 
-            end_time = time.time()
-            elapsed_time = (end_time - start_time) * 1000  # Convert to milliseconds
+            end_time = time.perf_counter()  # Record the end time after the sorting operation
+            elapsed_time = (end_time - start_time) * 1000  # Calculate elapsed time in milliseconds
 
             # Append n and time taken to the lists
             n_values.append(n)
@@ -297,7 +297,7 @@ class AnalysisSpace(tk.Frame):
 
         # Create scatter plot
         fig, ax = plt.subplots(figsize=(8, 5), facecolor='black')
-        ax.scatter(n_values, time_taken, marker="x", color="red", alpha=0.5, s=5, label="Data Points")
+        ax.scatter(n_values, time_taken, marker="o", color="#FFD700", alpha=0.5, s=10, label="Data Points")
         ax.set_title("Regression Plot", color="#FFF027", fontweight="bold", fontsize=12)  # Set the title color to white
         ax.set_xlabel("Array Length", color="white")  # Set the x-axis label color to white
         ax.set_ylabel("Time Taken (milliseconds)", color="white")  # Set the y-axis label color to white
@@ -311,7 +311,7 @@ class AnalysisSpace(tk.Frame):
         z = np.polyfit(n_values, time_taken, 2)
         p = np.poly1d(z)
         regression_curve = p(n_values)
-        ax.plot(n_values, regression_curve, color="lime", linewidth=1.5, label="Regression Line")
+        ax.plot(n_values, regression_curve, color="#800080", linewidth=1.5, label="Regression Line")
         legend = ax.legend(facecolor="black")
 
         # Set the text color inside the legend to white
@@ -351,83 +351,105 @@ class AnalysisSpace(tk.Frame):
         match ConfigWindow.sort_algo:
             case "Merge Sort":
                 heading = "Merge Sort"
-                best_case = "O(n log n)"
-                average_case = "O(n log n)"
-                worst_case = "O(n log n)"
-                space_complex = "O(n)"
+                best_case_time = "O(n log n)"
+                average_case_time = "O(n log n)"
+                worst_case_time = "O(n log n)"
+                best_case_space = "O(n)"
+                average_case_space = "O(n)"
+                worst_case_space = "O(n)"
                 code_snippet = os.path.join(script_dir, "res/mergeSortCode.png")
             case "Quick Sort":
                 heading = "Quick Sort"
-                best_case = "O(n log n)"
-                average_case = "O(n log n)"
-                worst_case = "O(n^2)"
-                space_complex = "O(log n)"
+                best_case_time = "O(n log n)"
+                average_case_time = "O(n log n)"
+                worst_case_time = "O(n^2)"
+                best_case_space = "O(log n)"
+                average_case_space = "O(log n)"
+                worst_case_space = "O(n)"
                 code_snippet = os.path.join(script_dir, "res/quickSortCode.png")
             case "Heap Sort":
                 heading = "Heap Sort"
-                best_case = "O(n log n)"
-                average_case = "O(n log n)"
-                worst_case = "O(n log n)"
-                space_complex = "O(1)"
+                best_case_time = "O(n log n)"
+                average_case_time = "O(n log n)"
+                worst_case_time = "O(n log n)"
+                best_case_space = "O(1)"
+                average_case_space = "O(1)"
+                worst_case_space = "O(1)"
                 code_snippet = os.path.join(script_dir, "res/heapSortCode.png")
             case "Radix Sort":
                 heading = "Radix Sort"
-                best_case = "O(kn)"
-                average_case = "O(kn)"
-                worst_case = "O(kn)"
-                space_complex = "O(k + n)"
+                best_case_time = "O(kn)"
+                average_case_time = "O(kn)"
+                worst_case_time = "O(kn)"
+                best_case_space = "O(k + n)"
+                average_case_space = "O(k + n)"
+                worst_case_space = "O(k + n)"
                 code_snippet = os.path.join(script_dir, "res/radixSortCode.png")
             case "Tim Sort":
                 heading = "Tim Sort"
-                best_case = "O(n)"
-                average_case = "O(n log n)"
-                worst_case = "O(n log n)"
-                space_complex = "O(n)"
+                best_case_time = "O(n)"
+                average_case_time = "O(n log n)"
+                worst_case_time = "O(n log n)"
+                best_case_space = "O(n)"
+                average_case_space = "O(n)"
+                worst_case_space = "O(n)"
                 code_snippet = os.path.join(script_dir, "res/timSortCode.png")
             case "Counting Sort":
                 heading = "Counting Sort"
-                best_case = "O(n + k)"
-                average_case = "O(n + k)"
-                worst_case = "O(n + k)"
-                space_complex = "O(k)"
+                best_case_time = "O(n + k)"
+                average_case_time = "O(n + k)"
+                worst_case_time = "O(n + k)"
+                best_case_space = "O(k)"
+                average_case_space = "O(k)"
+                worst_case_space = "O(k)"
                 code_snippet = os.path.join(script_dir, "res/countingSortCode.png")
             case "Shell Sort":
                 heading = "Shell Sort"
-                best_case = "O(n log n)"
-                average_case = "O(n log^2 n)"
-                worst_case = "O(n log^2 n)"
-                space_complex = "O(1)"
+                best_case_time = "O(n log n)"
+                average_case_time = "O(n log^2 n)"
+                worst_case_time = "O(n log^2 n)"
+                best_case_space = "O(1)"
+                average_case_space = "O(1)"
+                worst_case_space = "O(1)"
                 code_snippet = os.path.join(script_dir, "res/shellSortCode.png")
             case "Insertion Sort":
                 heading = "Insertion Sort"
-                best_case = "O(n)"
-                average_case = "O(n^2)"
-                worst_case = "O(n^2)"
-                space_complex = "O(1)"
+                best_case_time = "O(n)"
+                average_case_time = "O(n^2)"
+                worst_case_time = "O(n^2)"
+                best_case_space = "O(1)"
+                average_case_space = "O(1)"
+                worst_case_space = "O(1)"
                 code_snippet = os.path.join(script_dir, "res/insertionSortCode.png")
             case "Selection Sort":
                 heading = "Selection Sort"
-                best_case = "O(n^2)"
-                average_case = "O(n^2)"
-                worst_case = "O(n^2)"
-                space_complex = "O(1)"
+                best_case_time = "O(n^2)"
+                average_case_time = "O(n^2)"
+                worst_case_time = "O(n^2)"
+                best_case_space = "O(1)"
+                average_case_space = "O(1)"
+                worst_case_space = "O(1)"
                 code_snippet = os.path.join(script_dir, "res/selectionSortCode.png")
             case "Bubble Sort":
                 heading = "Bubble Sort"
-                best_case = "O(n)"
-                average_case = "O(n^2)"
-                worst_case = "O(n^2)"
-                space_complex = "O(1)"
+                best_case_time = "O(n)"
+                average_case_time = "O(n^2)"
+                worst_case_time = "O(n^2)"
+                best_case_space = "O(1)"
+                average_case_space = "O(1)"
+                worst_case_space = "O(1)"
                 code_snippet = os.path.join(script_dir, "res/bubbleSortCode.png")
             case "Tree Sort":
                 heading = "Tree Sort"
-                best_case = "O(n log n)"
-                average_case = "O(n log n)"
-                worst_case = "O(n^2)"
-                space_complex = "O(1)"
+                best_case_time = "O(n log n)"
+                average_case_time = "O(n log n)"
+                worst_case_time = "O(n^2)"
+                best_case_space = "O(1)"
+                average_case_space = "O(1)"
+                worst_case_space = "O(1)"
                 code_snippet = os.path.join(script_dir, "res/treeSortCode.png")
 
-         # Create the heading label
+        # Create the heading label
         heading_label = tk.Label(cls.analysis, text=heading, font=("Helvetica", 20, "bold"), fg="#00bf63", bg="#000000")
         heading_label.place(relx=0.5, rely=0.05, anchor="center")
 
@@ -449,21 +471,35 @@ class AnalysisSpace(tk.Frame):
                               bg="#000000", borderwidth=0)
         time_label.place(x=20, y=405)
 
-        time_best_value_label = tk.Label(cls.analysis, text=f"Best Case : {best_case}", font=("Helvetica", 11, "bold"),
+        time_best_value_label = tk.Label(cls.analysis, text=f"Best Case : {best_case_time}", font=("Helvetica", 11, "bold"),
                                          fg="#FF4C29", bg="#000000", borderwidth=0)
-        time_best_value_label.place(x=20, y=425)
+        time_best_value_label.place(x=40, y=430)
 
-        time_average_value_label = tk.Label(cls.analysis, text=f"Average Case : {average_case}",
+        time_average_value_label = tk.Label(cls.analysis, text=f"Average Case : {average_case_time}",
                                             font=("Helvetica", 11, "bold"), fg="#FF4C29", bg="#000000", borderwidth=0)
-        time_average_value_label.place(x=20, y=442)
+        time_average_value_label.place(x=40, y=450)
 
-        time_worst_value_label = tk.Label(cls.analysis, text=f"Worst Case : {worst_case}",
+        time_worst_value_label = tk.Label(cls.analysis, text=f"Worst Case : {worst_case_time}",
                                           font=("Helvetica", 11, "bold"), fg="#FF4C29", bg="#000000", borderwidth=0)
-        time_worst_value_label.place(x=20, y=459)
+        time_worst_value_label.place(x=40, y=470)
 
-        space_label = tk.Label(cls.analysis, text=f"Space Complexity : {space_complex}", font=("Helvetica", 12, "bold"),
-                               fg="#F8D210", bg="#000000", borderwidth=0)
-        space_label.place(x=20, y=476)
+        # Create the time complexity label
+        space_label = tk.Label(cls.analysis, text="Space Complexity", font=("Helvetica", 12, "bold"), fg="#F8D210",
+                              bg="#000000", borderwidth=0)
+        space_label.place(x=300, y=405)
+
+        space_best_value_label = tk.Label(cls.analysis, text=f"Best Case : {best_case_space}",
+                                         font=("Helvetica", 11, "bold"),
+                                         fg="#FF4C29", bg="#000000", borderwidth=0)
+        space_best_value_label.place(x=320, y=430)
+
+        space_average_value_label = tk.Label(cls.analysis, text=f"Average Case : {average_case_space}",
+                                            font=("Helvetica", 11, "bold"), fg="#FF4C29", bg="#000000", borderwidth=0)
+        space_average_value_label.place(x=320, y=450)
+
+        space_worst_value_label = tk.Label(cls.analysis, text=f"Worst Case : {worst_case_space}",
+                                          font=("Helvetica", 11, "bold"), fg="#FF4C29", bg="#000000", borderwidth=0)
+        space_worst_value_label.place(x=320, y=470)
 
 
 
